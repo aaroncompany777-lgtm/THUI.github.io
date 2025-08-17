@@ -6,10 +6,12 @@
     <title>Bangkok Apps - Inspiring Business Through Technology</title>
     <style>
         :root {
-            --primary-color: #4CAF50;
-            --secondary-color: #333;
-            --background-color: #f4f7f6;
-            --text-color: #555;
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #f0f0f0;
+            --subtle-text: #a0a0a0;
+            --accent-orange: #ff5722;
+            --accent-green: #4CAF50;
             --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
@@ -18,110 +20,144 @@
             margin: 0;
             line-height: 1.6;
             color: var(--text-color);
-            background-color: var(--background-color);
+            background-color: var(--dark-bg);
             scroll-behavior: smooth;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 0 1rem;
         }
 
         /* Hero Section */
         .hero {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/programming.jpeg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('images/programming.jpeg');
             background-size: cover;
             background-position: center;
-            background-color: var(--primary-color);
             color: white;
             text-align: center;
-            padding: 6rem 1rem;
-        }
-        .hero .logo {
-            max-width: 250px;
-            height: auto;
-            margin-bottom: 1rem;
+            padding: 10rem 1rem;
+            position: relative;
         }
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 0.5rem;
+            font-weight: 700;
         }
         .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
+            font-size: 1.25rem;
+            max-width: 700px;
             margin: 0 auto;
+            font-weight: 300;
         }
-
-        /* Sections */
+        
+        /* General Sections */
         section {
-            padding: 4rem 1rem;
+            padding: 5rem 0;
+            background-color: var(--dark-bg);
         }
         section h2 {
             text-align: center;
             font-size: 2.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 3rem;
+            color: var(--text-color);
+            margin-bottom: 4rem;
+            position: relative;
         }
-        
+        section h2::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-orange);
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* Card Component */
+        .card {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
         /* About Us Section */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .about-content p {
+            max-width: 800px;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--subtle-text);
+        }
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
             text-align: center;
-            margin-top: 2rem;
+            width: 100%;
         }
         .stat-item h3 {
             font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 0.2rem;
+            color: var(--accent-green);
+            margin-bottom: 0.5rem;
         }
         .stat-item p {
             font-size: 1.1rem;
             font-weight: bold;
+            margin: 0;
+            color: var(--text-color);
         }
 
         /* How We Do It Section */
         .process-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            text-align: center;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
         }
         .process-step {
-            background-color: #fff;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            text-align: center;
         }
         .process-step h3 {
             font-size: 1.5rem;
-            color: var(--primary-color);
+            color: var(--text-color);
             margin-top: 0;
         }
         
         /* Technologies Section */
         .tech-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
             text-align: center;
         }
         .tech-category h3 {
-            color: var(--secondary-color);
-            font-size: 1.5rem;
+            color: var(--accent-orange);
+            font-size: 1.6rem;
             margin-top: 0;
         }
         .tech-item {
-            background-color: #fff;
-            padding: 1rem;
-            border-radius: 6px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            font-weight: bold;
+            background-color: #2b2b2b;
+            padding: 0.6rem;
+            margin-bottom: 0.5rem;
+            border-radius: 20px;
+            font-weight: 500;
         }
-
+        
         /* Portfolio Section */
+        #portfolio {
+            background-color: var(--dark-bg);
+        }
         .portfolio-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -130,21 +166,21 @@
         .portfolio-item {
             display: flex;
             flex-direction: column;
-            background-color: #fff;
+            background-color: var(--card-bg);
             border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            overflow: hidden;
         }
         .portfolio-item img {
             max-width: 100%;
             height: auto;
-            border-radius: 8px;
-            margin-bottom: 1rem;
+            object-fit: cover;
         }
         .portfolio-content {
             padding: 2rem;
         }
         .portfolio-content h3 {
-            color: var(--primary-color);
+            color: var(--accent-orange);
             margin-top: 0;
         }
         .tech-stack-list {
@@ -156,7 +192,7 @@
             margin-top: 1rem;
         }
         .tech-stack-list li {
-            background-color: var(--background-color);
+            background-color: #2b2b2b;
             padding: 0.4rem 0.8rem;
             border-radius: 20px;
             font-size: 0.9rem;
@@ -165,13 +201,11 @@
         @media (min-width: 768px) {
             .portfolio-item {
                 flex-direction: row;
-                text-align: left;
             }
             .portfolio-item img {
                 width: 50%;
                 border-top-right-radius: 0;
                 border-bottom-right-radius: 0;
-                border-radius: 8px;
             }
             .portfolio-content {
                 width: 50%;
@@ -179,16 +213,11 @@
             .portfolio-item:nth-child(even) {
                 flex-direction: row-reverse;
             }
-            .portfolio-item:nth-child(even) img {
-                border-top-left-radius: 0;
-                border-bottom-left-radius: 0;
-                border-radius: 8px;
-            }
         }
 
         /* Testimonials Section */
         #testimonials {
-            background-color: #e9f7ef;
+            background-color: #1a1a1a;
         }
         .testimonials-grid {
             display: grid;
@@ -197,38 +226,40 @@
             text-align: center;
         }
         .testimonial-item {
-            background-color: #fff;
-            padding: 1.5rem;
+            background-color: var(--card-bg);
+            padding: 2rem;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
         .testimonial-item img {
             width: 100px;
             height: 100px;
             border-radius: 50%;
             margin-bottom: 1rem;
+            object-fit: cover;
         }
         .testimonial-item blockquote {
             margin: 0;
             font-style: italic;
             font-size: 1.1rem;
+            color: var(--subtle-text);
         }
         .testimonial-item cite {
             display: block;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
             font-weight: bold;
-            color: var(--primary-color);
+            color: var(--accent-orange);
         }
         .testimonial-item cite span {
             display: block;
             font-size: 0.9rem;
-            color: #777;
+            color: var(--subtle-text);
             font-weight: normal;
         }
 
         /* Clients Section */
         #clients {
-            background-color: #e9f7ef;
+            background-color: var(--dark-bg);
             text-align: center;
         }
         #clients img {
@@ -244,6 +275,8 @@
             padding: 0;
             text-align: left;
             display: inline-block;
+            margin-top: 1rem;
+            color: var(--subtle-text);
         }
         .client-list li {
             margin-bottom: 0.5rem;
@@ -251,15 +284,17 @@
 
         /* Contact Section */
         #contact {
-            background-color: var(--secondary-color);
+            background-color: var(--card-bg);
             color: white;
             text-align: center;
         }
         #contact a {
-            color: var(--primary-color);
+            color: var(--accent-orange);
             text-decoration: none;
+            transition: color 0.2s;
         }
         #contact a:hover {
+            color: #fff;
             text-decoration: underline;
         }
         .contact-info-grid {
@@ -269,12 +304,13 @@
             margin-top: 2rem;
         }
         .contact-item {
-            background-color: #444;
+            background-color: #2b2b2b;
             padding: 1.5rem;
             border-radius: 8px;
         }
         .contact-item h3 {
             margin-top: 0;
+            color: var(--text-color);
         }
         .contact-item p {
             margin: 0;
@@ -284,37 +320,35 @@
         footer {
             text-align: center;
             padding: 2rem 1rem;
-            background-color: #222;
-            color: #aaa;
+            background-color: #000;
+            color: var(--subtle-text);
         }
     </style>
 </head>
 <body>
 
-    <!-- Hero Section -->
     <header class="hero">
         <div class="container">
-            <img class="logo" src="https://placehold.co/250x80/ffffff/4CAF50?text=Bangkok+Apps+Logo" alt="Bangkok Apps Logo">
-            <h1>Bangkok Apps</h1>
+            <img class="logo" src="https://placehold.co/250x80/ffffff/ff5722?text=Bangkok+Apps" alt="Bangkok Apps Logo">
+            <h1>Transform Your Data Into Actionable Solutions</h1>
             <p>Inspiring Business Through Technology</p>
         </div>
     </header>
 
-    <!-- About Us Section -->
     <section id="about">
-        <div class="container">
+        <div class="container about-content">
             <h2>About Us</h2>
-            <p style="text-align:center;">ItecExperts Pvt Ltd, Software Development & Digital Marketing Company Provides Brand-Centric services for Small-Medium Businesses, Startups Entrepreneurs, and Organizations. ItecExperts aims to Inspire business through technology by increasing their business Efficiency, Growth, and Sales by adopting the leading and trending technology as per the needs of time and trends. We are a registered firm under a legal entity with the Pakistan Software Export Board (PSEB), the Securities & Exchange Commission of Pakistan (SECP), the Federal Board of Revenue (FBR), and the Pakistan Software Houses Association (P@SHA).</p>
+            <p>Bangkok Apps Pvt Ltd, Software Development & Digital Marketing Company Provides Brand-Centric services for Small-Medium Businesses, Startups Entrepreneurs, and Organizations. Bangkok Apps aims to Inspire business through technology by increasing their business Efficiency, Growth, and Sales by adopting the leading and trending technology as per the needs of time and trends. We are a registered firm under a legal entity with the Pakistan Software Export Board (PSEB), the Securities & Exchange Commission of Pakistan (SECP), the Federal Board of Revenue (FBR), and the Pakistan Software Houses Association (P@SHA).</p>
             <div class="stats-grid">
-                <div class="stat-item">
+                <div class="stat-item card">
                     <h3>5 Years</h3>
                     <p>On the global market</p>
                 </div>
-                <div class="stat-item">
+                <div class="stat-item card">
                     <h3>100+</h3>
                     <p>Projects completed</p>
                 </div>
-                <div class="stat-item">
+                <div class="stat-item card">
                     <h3>150+</h3>
                     <p>Clients worldwide</p>
                 </div>
@@ -322,42 +356,41 @@
         </div>
     </section>
 
-    <!-- How We Do It Section -->
     <section id="process">
         <div class="container">
             <h2>How We Do It</h2>
-            <p style="text-align:center;">We apply a simple and effective 3 steps process to develop a product.</p>
+            <p style="text-align:center; color: var(--subtle-text);">We apply a simple and effective 3 steps process to develop a product.</p>
             <div class="process-grid">
-                <div class="process-step">
+                <div class="process-step card">
                     <h3>1. Research and planning</h3>
-                    <p>Gather information about the audience, market trends, and competitors to define project scope, goals, and requirements.</p>
+                    <p style="color: var(--subtle-text);">Gather information about the audience, market trends, and competitors to define project scope, goals, and requirements.</p>
                 </div>
-                <div class="process-step">
+                <div class="process-step card">
                     <h3>2. Design and development</h3>
-                    <p>Create wireframes, mockups, and prototypes to design the UI/UX, then build the final product using various technologies, tools, and frameworks.</p>
+                    <p style="color: var(--subtle-text);">Create wireframes, mockups, and prototypes to design the UI/UX, then build the final product using various technologies, tools, and frameworks.</p>
                 </div>
-                <div class="process-step">
+                <div class="process-step card">
                     <h3>3. Launch and maintenance</h3>
-                    <p>Launch the product and provide ongoing maintenance and support to ensure continued performance and usability.</p>
+                    <p style="color: var(--subtle-text);">Launch the product and provide ongoing maintenance and support to ensure continued performance and usability.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Technologies Section -->
     <section id="technologies">
         <div class="container">
             <h2>Technologies We Work With</h2>
-            <p style="text-align:center;">We leverage a diverse range of cutting-edge technologies to deliver innovative and efficient solutions.</p>
+            <p style="text-align:center; color: var(--subtle-text);">We leverage a diverse range of cutting-edge technologies to deliver innovative and efficient solutions.</p>
             <div class="tech-grid">
-                <div class="tech-category">
+                <div class="tech-category card">
                     <h3>Mobile App Development</h3>
                     <p class="tech-item">Flutter</p>
                     <p class="tech-item">React Native</p>
                     <p class="tech-item">Android</p>
                     <p class="tech-item">IOS</p>
+                    <p class="tech-item">Firebase</p>
                 </div>
-                <div class="tech-category">
+                <div class="tech-category card">
                     <h3>Front End Development</h3>
                     <p class="tech-item">React JS</p>
                     <p class="tech-item">Next JS</p>
@@ -366,9 +399,9 @@
                     <p class="tech-item">WordPress</p>
                     <p class="tech-item">Tailwind CSS</p>
                     <p class="tech-item">HTML5/CSS3</p>
-                    <p class="tech-item">Boothstrap</p>
+                    <p class="tech-item">Bootstrap</p>
                 </div>
-                <div class="tech-category">
+                <div class="tech-category card">
                     <h3>Backend End Development</h3>
                     <p class="tech-item">Node JS</p>
                     <p class="tech-item">Python</p>
@@ -377,28 +410,26 @@
                     <p class="tech-item">Ruby on Rails</p>
                     <p class="tech-item">Django</p>
                 </div>
-                <div class="tech-category">
-                    <h3>Date Base</h3>
+                <div class="tech-category card">
+                    <h3>Database</h3>
                     <p class="tech-item">Mongo DB</p>
                     <p class="tech-item">My SQL</p>
                     <p class="tech-item">DocumentDB</p>
+                    <p class="tech-item">Firebase</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Section -->
     <section id="portfolio">
         <div class="container">
             <h2>Our Portfolio</h2>
             <div class="portfolio-grid">
-                <!-- LaunchArts Media -->
                 <div class="portfolio-item">
                     <img src="https://placehold.co/500x350/80e782/222222?text=LaunchArts+Media" alt="LaunchArts Media App">
                     <div class="portfolio-content">
                         <h3>LaunchArts Media</h3>
                         <p>Launcharts Media has established itself as a purveyor of quality brand marketing through media and design services. Producing memorable advertising for area businesses, we pride ourselves in being eclectic, representing brands of various industries.</p>
-                        <p><strong>Deliverable:</strong> Mobile App + Admin Dashboards</p>
                         <ul class="tech-stack-list">
                             <li>Flutter</li>
                             <li>Firebase</li>
@@ -408,123 +439,16 @@
                         </ul>
                     </div>
                 </div>
-                <!-- HBK E-commerce App -->
                 <div class="portfolio-item">
                     <img src="https://placehold.co/500x350/8280e7/222222?text=HBK+E-commerce" alt="HBK E-commerce App">
                     <div class="portfolio-content">
                         <h3>HBK E-commerce App</h3>
                         <p>Get ready for a cozier and easier shopping experience! Explore our revamped HBK Blanket App, where you can find blankets, place orders effortlessly. Stay warm in style with our user-friendly app.</p>
-                        <p><strong>Deliverable:</strong> Mobile App Design + Development</p>
                         <ul class="tech-stack-list">
                             <li>Flutter</li>
                             <li>Firebase</li>
                             <li>Figma</li>
                             <li>NodeJs</li>
-                            <li>AWS</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- TURNIP -->
-                <div class="portfolio-item">
-                    <img src="https://placehold.co/500x350/e78280/222222?text=TURNIP+App" alt="TURNIP Social Media App">
-                    <div class="portfolio-content">
-                        <h3>TURNIP</h3>
-                        <p>A social media app for capturing and sharing moments through photos and short videos, fostering a vibrant community.</p>
-                        <p><strong>Deliverable:</strong> Mobile App</p>
-                        <ul class="tech-stack-list">
-                            <li>Figma</li>
-                            <li>Notion</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- GETIT Mobile App -->
-                <div class="portfolio-item">
-                    <img src="https://placehold.co/500x350/80e782/222222?text=GETIT+App" alt="GETIT Shopping App">
-                    <div class="portfolio-content">
-                        <h3>GETIT Mobile App</h3>
-                        <p>A "TikTok of shopping" app, allowing users to discover and instantly buy products through short, engaging videos.</p>
-                        <p><strong>Deliverable:</strong> Mobile App</p>
-                        <ul class="tech-stack-list">
-                            <li>Figma</li>
-                            <li>Notion</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- My Tennis Diary -->
-                <div class="portfolio-item">
-                    <img src="https://placehold.co/500x350/8280e7/222222?text=My+Tennis+Diary" alt="My Tennis Diary App">
-                    <div class="portfolio-content">
-                        <h3>My Tennis Diary</h3>
-                        <p>A tool for tennis players to plan and improve their performance by tracking training, tournaments, and feelings.</p>
-                        <p><strong>Deliverable:</strong> Mobile App + Admin Dashboards</p>
-                        <ul class="tech-stack-list">
-                            <li>Flutter</li>
-                            <li>Firebase</li>
-                            <li>Figma</li>
-                            <li>NodeJs</li>
-                            <li>ReactJs</li>
-                            <li>AWS</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Estrahty -->
-                <div class="portfolio-item">
-                    <img src="https://i.imgur.com/your-estrahty-image-url.png" alt="Estrahty App">
-                    <div class="portfolio-content">
-                        <h3>Estrahty</h3>
-                        <p>Esterahy is a multi-vendor app for villas that allows multiple villa owners to list and rent out their properties on a single platform. This would provide customers with a convenient way to browse and book villas in different locations, and also give property owners a way to increase their visibility and reach more potential renters. Additionally, Esterahy could also provide tools for property owners to manage their listings, bookings, and communications with renters.</p>
-                        <p><strong>Deliverable:</strong> Mobile App + Admin Dashboards</p>
-                        <ul class="tech-stack-list">
-                            <li>Flutter</li>
-                            <li>Firebase</li>
-                            <li>Figma</li>
-                            <li>NodeJs</li>
-                            <li>ReactJs</li>
-                            <li>AWS</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Birdie SAAS Web -->
-                <div class="portfolio-item">
-                    <img src="https://placehold.co/500x350/80e782/222222?text=Birdie+SAAS+Web" alt="Birdie SAAS Web App">
-                    <div class="portfolio-content">
-                        <h3>Birdie SAAS Web</h3>
-                        <p>A SaaS platform that simplifies the process of connecting influencers with hotels and villas for mutually beneficial collaborations.</p>
-                        <p><strong>Deliverable:</strong> Web App</p>
-                        <ul class="tech-stack-list">
-                            <li>Figma</li>
-                            <li>Notion</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- PREMIER VEHICLE -->
-                <div class="portfolio-item">
-                    <img src="https://i.imgur.com/your-premier-vehicle-image-url.png" alt="PREMIER VEHICLE Website">
-                    <div class="portfolio-content">
-                        <h3>PREMIER VEHICLE</h3>
-                        <p>Discover Premier Vehicle, your ultimate platform for buying and selling cars. Browse listings, connect with buyers and sellers, and enjoy a seamless, user-friendly experience for all your automotive needs.</p>
-                        <p><strong>Deliverable:</strong> Website Design + Development</p>
-                        <ul class="tech-stack-list">
-                            <li>React JS</li>
-                            <li>CSS3/HTML5</li>
-                            <li>Figma</li>
-                            <li>NodeJs</li>
-                            <li>AWS</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- ROB J SOLUTIONS -->
-                <div class="portfolio-item">
-                    <img src="https://placehold.co/500x350/e78280/222222?text=ROB+J+SOLUTIONS+Web" alt="ROB J SOLUTIONS Website">
-                    <div class="portfolio-content">
-                        <h3>ROB J SOLUTIONS</h3>
-                        <p>Rob J Solutions is a leading European company that revolutionizes labor provision across various sectors. Specializing in Railways, Civil Engineering, and Motorways, we connect you with skilled labor workers for all your project needs, ensuring a seamless and efficient experience.</p>
-                        <p><strong>Deliverable:</strong> Website Design + Development</p>
-                        <ul class="tech-stack-list">
-                            <li>Figma</li>
-                            <li>Notion</li>
-                            <li>React JS</li>
-                            <li>MySQL</li>
                             <li>AWS</li>
                         </ul>
                     </div>
@@ -533,23 +457,22 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
     <section id="testimonials">
         <div class="container">
             <h2>Testimonials</h2>
             <div class="testimonials-grid">
-                <div class="testimonial-item">
-                    <img src="https://i.imgur.com/your-jumar-image-url.png" alt="Jumar Newel profile picture">
+                <div class="testimonial-item card">
+                    <img src="https://placehold.co/100x100/e9f7ef/4CAF50?text=Jumar" alt="Jumar Newel profile picture">
                     <blockquote>"I'm very pleased with the work, there are tweaks that will be needed but we have an extended process."</blockquote>
                     <cite>Jumar Newel<br><span>United State of America</span></cite>
                 </div>
-                <div class="testimonial-item">
-                    <img src="https://i.imgur.com/your-stefanomadde-image-url.png" alt="Stefanomadde profile picture">
+                <div class="testimonial-item card">
+                    <img src="https://placehold.co/100x100/e9f7ef/4CAF50?text=Stef" alt="Stefanomadde profile picture">
                     <blockquote>"Excellent work, they designed everything according to my request and refined the design until it was truly what I was looking for. Awesome job!"</blockquote>
                     <cite>Stefanomadde<br><span>Italy</span></cite>
                 </div>
-                <div class="testimonial-item">
-                    <img src="https://i.imgur.com/your-martin-image-url.png" alt="Martin profile picture">
+                <div class="testimonial-item card">
+                    <img src="https://placehold.co/100x100/e9f7ef/4CAF50?text=Martin" alt="Martin profile picture">
                     <blockquote>"The Team was great and kept me updated at every step. They took the time to understand my requirements and then guided me through the Phases of getting the app i needed"</blockquote>
                     <cite>Martin<br><span>Argentina</span></cite>
                 </div>
@@ -557,43 +480,42 @@
         </div>
     </section>
     
-    <!-- Clients Section with map image placeholder -->
     <section id="clients">
         <div class="container">
             <h2>Our Clients</h2>
-            <p>We have worked with clients from different countries:</p>
-            <img src="https://i.imgur.com/your-world-map-image-url.png" alt="World Map showing client locations">
-            <ul class="client-list">
-                <li>United State of America</li>
-                <li>Netherlands</li>
-                <li>Canada</li>
-                <li>United Kingdom</li>
-                <li>Saudi Arabia</li>
-                <li>Australia</li>
-                <li>France</li>
-                <li>Germany</li>
-                <li>Italy</li>
-                <li>Turkey</li>
-                <li>Norway</li>
-                <li>UAE</li>
-                <li>Brazil</li>
-                <li>Morocco</li>
-                <li>Belgium</li>
-                <li>Pakistan</li>
-                <li>United Arab Emirates</li>
-                <li>South Africa</li>
-                <li>Hong Kong</li>
-                <li>Netherland</li>
-                <li>Jordan</li>
-            </ul>
+            <p style="text-align:center; color: var(--subtle-text);">We have worked with clients from different countries:</p>
+            <div class="client-list">
+                <ul>
+                    <li>United State of America</li>
+                    <li>Netherlands</li>
+                    <li>Canada</li>
+                    <li>United Kingdom</li>
+                    <li>Saudi Arabia</li>
+                    <li>Australia</li>
+                    <li>France</li>
+                    <li>Germany</li>
+                    <li>Italy</li>
+                    <li>Turkey</li>
+                    <li>Norway</li>
+                    <li>UAE</li>
+                    <li>Brazil</li>
+                    <li>Morocco</li>
+                    <li>Belgium</li>
+                    <li>Pakistan</li>
+                    <li>United Arab Emirates</li>
+                    <li>South Africa</li>
+                    <li>Hong Kong</li>
+                    <li>Netherland</li>
+                    <li>Jordan</li>
+                </ul>
+            </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact">
         <div class="container">
             <h2>Contact Us</h2>
-            <p>Ready to build your next great idea? I'm excited to hear from you!</p>
+            <p style="color: var(--subtle-text);">Ready to build your next great idea? I'm excited to hear from you!</p>
             <div class="contact-info-grid">
                 <div class="contact-item">
                     <h3>Phone</h3>
@@ -605,17 +527,16 @@
                 </div>
                 <div class="contact-item">
                     <h3>Bangkok Office</h3>
-                    <p>Street: 37 Soi Santisuk, Nakorn Chaisri Rd., Dusit<br>City: Dusit<br>State/province/area: Bangkok<br>Country: Thailand</p>
+                    <p style="color: var(--subtle-text);">Street: 37 Soi Santisuk, Nakorn Chaisri Rd., Dusit<br>City: Dusit<br>State/province/area: Bangkok<br>Country: Thailand</p>
                 </div>
                 <div class="contact-item">
                     <h3>USA Office</h3>
-                    <p>2980 Riverside Dr Unit 125 Coral Springs 33065 FL</p>
+                    <p style="color: var(--subtle-text);">2980 Riverside Dr Unit 125 Coral Springs 33065 FL</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <p>&copy; 2025 Bangkok Apps. All Rights Reserved.</p>
