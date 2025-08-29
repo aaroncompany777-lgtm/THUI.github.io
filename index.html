@@ -1,496 +1,275 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bangkok Apps - Inspiring Business Through Technology</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Premium Portfolio</title>
+    <meta name="description" content="Premium portfolio website with motion effects, blur-on-scroll, and WhatsApp/social CTAs. Single-file for GitHub Pages."/>
+    <meta name="theme-color" content="#0f172a" />
+
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AOS (Animate on Scroll) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+
+    <!-- GSAP + ScrollTrigger (for advanced scroll/motion effects) -->
+    <script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+    <!-- Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
     <style>
-        :root {
-            --dark-bg: #121212;
-            --card-bg: #1e1e1e;
-            --text-color: #f0f0f0;
-            --subtle-text: #a0a0a0;
-            --accent-orange: #ff5722;
-            --accent-green: #4CAF50;
-            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            font-family: var(--font-family);
-            margin: 0;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--dark-bg);
-            scroll-behavior: smooth;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('programming.jpeg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 10rem 1rem;
-            position: relative;
-        }
-        .hero .logo {
-            max-width: 250px;
-            height: auto;
-            margin-bottom: 1rem;
-        }
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 700px;
-            margin: 0 auto;
-            font-weight: 300;
-        }
-        
-        /* General Sections */
-        section {
-            padding: 5rem 0;
-            background-color: var(--dark-bg);
-        }
-        section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            color: var(--text-color);
-            margin-bottom: 4rem;
-            position: relative;
-        }
-        section h2::after {
-            content: '';
-            width: 80px;
-            height: 4px;
-            background-color: var(--accent-orange);
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-
-        /* Card Component */
-        .card {
-            background-color: var(--card-bg);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* About Us Section */
-        .about-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .about-content p {
-            max-width: 800px;
-            text-align: center;
-            margin-bottom: 2rem;
-            color: var(--subtle-text);
-        }
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            text-align: center;
-            width: 100%;
-        }
-        .stat-item h3 {
-            font-size: 2.5rem;
-            color: var(--accent-green);
-            margin-bottom: 0.5rem;
-        }
-        .stat-item p {
-            font-size: 1.1rem;
-            font-weight: bold;
-            margin: 0;
-            color: var(--text-color);
-        }
-
-        /* How We Do It Section */
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-        }
-        .process-step {
-            text-align: center;
-        }
-        .process-step h3 {
-            font-size: 1.5rem;
-            color: var(--text-color);
-            margin-top: 0;
-        }
-        
-        /* Technologies Section */
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-        .tech-category h3 {
-            color: var(--accent-orange);
-            font-size: 1.6rem;
-            margin-top: 0;
-        }
-        .tech-item {
-            background-color: #2b2b2b;
-            padding: 0.6rem;
-            margin-bottom: 0.5rem;
-            border-radius: 20px;
-            font-weight: 500;
-        }
-        
-        /* Portfolio Section */
-        #portfolio {
-            background-color: var(--dark-bg);
-        }
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 4rem;
-        }
-        .portfolio-item {
-            display: flex;
-            flex-direction: column;
-            background-color: var(--card-bg);
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            overflow: hidden;
-        }
-        .portfolio-item img {
-            max-width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
-        .portfolio-content {
-            padding: 2rem;
-        }
-        .portfolio-content h3 {
-            color: var(--accent-orange);
-            margin-top: 0;
-        }
-        .tech-stack-list {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-        .tech-stack-list li {
-            background-color: #2b2b2b;
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
-        @media (min-width: 768px) {
-            .portfolio-item {
-                flex-direction: row;
-            }
-            .portfolio-item img {
-                width: 50%;
-                border-top-right-radius: 0;
-                border-bottom-right-radius: 0;
-            }
-            .portfolio-content {
-                width: 50%;
-            }
-            .portfolio-item:nth-child(even) {
-                flex-direction: row-reverse;
-            }
-        }
-
-        /* Testimonials Section */
-        #testimonials {
-            background-color: #1a1a1a;
-        }
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-        .testimonial-item {
-            background-color: var(--card-bg);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-        .testimonial-item img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin-bottom: 1rem;
-            object-fit: cover;
-        }
-        .testimonial-item blockquote {
-            margin: 0;
-            font-style: italic;
-            font-size: 1.1rem;
-            color: var(--subtle-text);
-        }
-        .testimonial-item cite {
-            display: block;
-            margin-top: 1.5rem;
-            font-weight: bold;
-            color: var(--accent-orange);
-        }
-        .testimonial-item cite span {
-            display: block;
-            font-size: 0.9rem;
-            color: var(--subtle-text);
-            font-weight: normal;
-        }
-
-        /* Clients Section */
-        #clients {
-            background-color: var(--dark-bg);
-            text-align: center;
-        }
-        #clients img {
-            max-width: 100%;
-            height: auto;
-            margin-top: 2rem;
-            border-radius: 8px;
-        }
-        .client-list {
-            columns: 2;
-            column-gap: 2rem;
-            list-style: none;
-            padding: 0;
-            text-align: left;
-            display: inline-block;
-            margin-top: 1rem;
-            color: var(--subtle-text);
-        }
-        .client-list li {
-            margin-bottom: 0.5rem;
-        }
-
-        /* Contact Section */
-        #contact {
-            background-color: var(--card-bg);
-            color: white;
-            text-align: center;
-        }
-        #contact a {
-            color: var(--accent-orange);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        #contact a:hover {
-            color: #fff;
-            text-decoration: underline;
-        }
-        .contact-info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        .contact-item {
-            background-color: #2b2b2b;
-            padding: 1.5rem;
-            border-radius: 8px;
-        }
-        .contact-item h3 {
-            margin-top: 0;
-            color: var(--text-color);
-        }
-        .contact-item p {
-            margin: 0;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem 1rem;
-            background-color: #000;
-            color: var(--subtle-text);
-        }
+      :root { --glass: rgba(15, 23, 42, 0.65); }
+      html { scroll-behavior: smooth; }
+      body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+      /* Subtle grain for premium feel */
+      .grain { position: relative; }
+      .grain::before {
+        content: "";
+        pointer-events: none;
+        position: absolute; inset: 0; opacity: .08; mix-blend-mode: overlay;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity="0.9"/></svg>');
+      }
+      /* Blur-in utility for GSAP */
+      .will-blur { filter: blur(14px) saturate(70%); transform: translateY(24px) scale(0.98); opacity: 0; }
+      .is-sharp { filter: blur(0) saturate(100%); transform: translateY(0) scale(1); opacity: 1; transition: filter .6s ease, transform .6s ease, opacity .6s ease; }
+      /* Nice focus outline */
+      a, button { outline-color: #60a5fa; outline-offset: 3px; }
     </style>
-</head>
-<body>
+  </head>
 
-    <header class="hero">
-        <div class="container">
-            <h3 class="company-name">Bangkok Apps</h3>
-            <h1>Transform Your Data Into Actionable Solutions</h1>
-            <p>Inspiring Business Through Technology</p>
+  <body class="bg-slate-950 text-slate-100 grain">
+    <!-- =================== NAVBAR =================== -->
+    <header class="fixed top-0 inset-x-0 z-50 backdrop-blur-lg bg-slate-950/60 border-b border-white/5">
+      <div class="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
+        <a href="#home" class="flex items-center gap-3">
+          <div class="h-8 w-8 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-400 shadow-lg"></div>
+          <span class="text-xl font-extrabold tracking-tight">MyPortfolio</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-8 text-sm">
+          <a class="hover:text-blue-400 transition" href="#home">Home</a>
+          <a class="hover:text-blue-400 transition" href="#portfolio">Portfolio</a>
+          <a class="hover:text-blue-400 transition" href="#about">About</a>
+          <a class="hover:text-blue-400 transition" href="#contact">Contact</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a href="https://wa.me/1234567890" class="hidden sm:inline-flex px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 transition shadow-lg shadow-blue-600/20">WhatsApp</a>
+          <button id="menuBtn" class="md:hidden inline-flex p-2 rounded-lg bg-white/5 hover:bg-white/10" aria-label="Open menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="opacity-80"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
         </div>
+      </div>
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="md:hidden hidden border-t border-white/5">
+        <div class="px-6 py-4 flex flex-col gap-3 text-sm bg-slate-900/80">
+          <a class="hover:text-blue-400" href="#home">Home</a>
+          <a class="hover:text-blue-400" href="#portfolio">Portfolio</a>
+          <a class="hover:text-blue-400" href="#about">About</a>
+          <a class="hover:text-blue-400" href="#contact">Contact</a>
+        </div>
+      </div>
     </header>
 
-    <section id="about">
-        <div class="container about-content">
-            <h2>About Us</h2>
-            <p>Bangkok Apps Pvt Ltd, Software Development & Digital Marketing Company Provides Brand-Centric services for Small-Medium Businesses, Startups Entrepreneurs, and Organizations. Bangkok Apps aims to Inspire business through technology by increasing their business Efficiency, Growth, and Sales by adopting the leading and trending technology as per the needs of time and trends. We are a registered firm under a legal entity with the Bangkok Software Export Board (BSEB), the Securities & Exchange Commission of Bangkok (SECB), the Federal Board of Revenue (FBR), and the Bangkok Software Houses Association (B@SHA).</p>
-            <div class="stats-grid">
-                <div class="stat-item card">
-                    <h3>5 Years</h3>
-                    <p>On the global market</p>
-                </div>
-                <div class="stat-item card">
-                    <h3>100+</h3>
-                    <p>Projects completed</p>
-                </div>
-                <div class="stat-item card">
-                    <h3>150+</h3>
-                    <p>Clients worldwide</p>
-                </div>
+    <!-- =================== HERO =================== -->
+    <section id="home" class="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
+      <!-- Background image (Unsplash placeholder; replace with your own) -->
+      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2000&auto=format&fit=crop" alt="Background" class="absolute inset-0 w-full h-full object-cover opacity-40"/>
+      
+      <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+        <div class="mx-auto max-w-3xl p-8 md:p-12 rounded-3xl bg-[var(--glass)] backdrop-blur-xl border border-white/10 shadow-2xl will-blur" data-animate>
+          <p class="uppercase tracking-[0.25em] text-xs text-blue-300/80">Portfolio • UI/UX • Web</p>
+          <h1 class="mt-3 text-4xl md:text-6xl font-extrabold leading-tight">
+            I craft <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-400 to-indigo-400">premium</span> digital experiences
+          </h1>
+          <p class="mt-4 text-slate-300/90 text-lg">
+            High-performance websites with motion, polish and clarity. Scroll to explore the work.
+          </p>
+          <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="#portfolio" class="px-6 py-3 rounded-2xl bg-blue-600 hover:bg-blue-500 transition shadow-lg shadow-blue-600/25">View Portfolio</a>
+            <a href="https://wa.me/1234567890" class="px-6 py-3 rounded-2xl border border-white/15 bg-white/5 hover:bg-white/10 transition flex items-center gap-2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.94 11.94 0 0 0 12.04 0C5.72 0 .58 5.14.58 11.46c0 2.02.53 3.98 1.55 5.7L0 24l6.99-2.07a11.42 11.42 0 0 0 5.05 1.2h.01c6.32 0 11.46-5.14 11.46-11.46 0-3.06-1.19-5.93-3.48-8.19zM12.05 21.2a9.7 9.7 0 0 1-4.95-1.36l-.36-.21-4.15 1.23 1.23-4.04-.23-.39a9.77 9.77 0 1 1 8.46 4.77zm5.54-7.29c-.3-.15-1.79-.88-2.07-.98-.28-.1-.49-.15-.7.15-.2.3-.8.98-.98 1.18-.18.2-.36.23-.66.08-.3-.15-1.26-.46-2.4-1.46-.89-.79-1.49-1.77-1.67-2.07-.18-.3-.02-.46.13-.61.13-.13.3-.33.43-.49.15-.18.2-.3.3-.51.1-.2.05-.38-.02-.53-.08-.15-.7-1.66-.96-2.27-.25-.61-.51-.52-.7-.53h-.6c-.2 0-.53.08-.8.38-.28.3-1.06 1.03-1.06 2.51 0 1.48 1.09 2.92 1.24 3.12.15.2 2.15 3.28 5.2 4.6.73.32 1.3.5 1.74.64.73.23 1.4.2 1.93.12.59-.09 1.79-.73 2.04-1.43.25-.69.25-1.28.18-1.41-.07-.13-.27-.2-.56-.35z"/></svg>
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- subtle gradient overlay -->
+      <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-950"></div>
+    </section>
+
+    <!-- =================== PORTFOLIO =================== -->
+    <section id="portfolio" class="py-24 bg-slate-950">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-end justify-between flex-wrap gap-6">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-extrabold">Selected Work</h2>
+            <p class="mt-2 text-slate-400">High-quality visuals, hover reveals, and case-study links.</p>
+          </div>
+          <a href="#contact" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10">
+            Hire Me
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Card 1 -->
+          <a href="#" class="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 will-blur" data-animate>
+            <img src="https://images.unsplash.com/photo-1522199710521-72d69614c702?q=80&w=1600&auto=format&fit=crop" alt="Project 1" class="h-64 w-full object-cover transition duration-500 group-hover:scale-105 group-hover:blur-[2px]"/>
+            <div class="absolute inset-0 p-5 flex flex-col justify-end bg-gradient-to-t from-black/60 via-black/10 to-transparent">
+              <span class="text-sm text-blue-300/90">E‑commerce</span>
+              <h3 class="text-xl font-bold">Modern Shopfront</h3>
+              <p class="text-slate-300/80 text-sm">Next-gen storefront with motion and performance.</p>
             </div>
-        </div>
-    </section>
-
-    <section id="process">
-        <div class="container">
-            <h2>How We Do It</h2>
-            <p style="text-align:center; color: var(--subtle-text);">We apply a simple and effective 3 steps process to develop a product.</p>
-            <div class="process-grid">
-                <div class="process-step card">
-                    <h3>1. Research and planning</h3>
-                    <p style="color: var(--subtle-text);">Gather information about the audience, market trends, and competitors to define project scope, goals, and requirements.</p>
-                </div>
-                <div class="process-step card">
-                    <h3>2. Design and development</h3>
-                    <p style="color: var(--subtle-text);">Create wireframes, mockups, and prototypes to design the UI/UX, then build the final product using various technologies, tools, and frameworks.</p>
-                </div>
-                <div class="process-step card">
-                    <h3>3. Launch and maintenance</h3>
-                    <p style="color: var(--subtle-text);">Launch the product and provide ongoing maintenance and support to ensure continued performance and usability.</p>
-                </div>
+          </a>
+          <!-- Card 2 -->
+          <a href="#" class="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 will-blur" data-animate>
+            <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?q=80&w=1600&auto=format&fit=crop" alt="Project 2" class="h-64 w-full object-cover transition duration-500 group-hover:scale-105 group-hover:blur-[2px]"/>
+            <div class="absolute inset-0 p-5 flex flex-col justify-end bg-gradient-to-t from-black/60 via-black/10 to-transparent">
+              <span class="text-sm text-blue-300/90">SaaS</span>
+              <h3 class="text-xl font-bold">Analytics Dashboard</h3>
+              <p class="text-slate-300/80 text-sm">Clean data viz with delightful micro‑interactions.</p>
             </div>
-        </div>
-    </section>
-
-    <section id="technologies">
-        <div class="container">
-            <h2>Technologies We Work With</h2>
-            <p style="text-align:center; color: var(--subtle-text);">We leverage a diverse range of cutting-edge technologies to deliver innovative and efficient solutions.</p>
-    </section>
-
-    <section id="portfolio">
-        <div class="container">
-            <h2>Our Portfolio</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <img src="launch.png" alt="LaunchArts Media App">
-                    <div class="portfolio-content">
-                        <h3>LaunchArts Media</h3>
-                        <p>Launcharts Media has established itself as a purveyor of quality brand marketing through media and design services. Producing memorable advertising for area businesses, we pride ourselves in being eclectic, representing brands of various industries.</p>
-                        <ul class="tech-stack-list">
-                            <li>Flutter</li>
-                            <li>Firebase</li>
-                            <li>Adobe XD</li>
-                            <li>NodeJs</li>
-                            <li>AWS</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="robj.png" alt="Rob J Solutions">
-                    <div class="portfolio-content">
-                        <h3>Rob J Solutions</h3>
-                        <p>Rob J Solutions is a leading European company that revolutionizes labor provision across various sectors. Specializing in Railways, Civil Engineering, and Motorways.</p>
-                        <ul class="tech-stack-list">
-                            <li>Flutter</li>
-                            <li>Firebase</li>
-                            <li>Adobe XD</li>
-                            <li>NodeJs</li>
-                            <li>AWS</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="hbk.png" alt="HBK E-commerce App">
-                    <div class="portfolio-content">
-                        <h3>HBK E-commerce App</h3>
-                        <p>Get ready for a cozier and easier shopping experience! Explore our revamped HBK Blanket App, where you can find blankets, place orders effortlessly. Stay warm in style with our user-friendly app.</p>
-                        <ul class="tech-stack-list">
-                            <li>Flutter</li>
-                            <li>Firebase</li>
-                            <li>Figma</li>
-                            <li>NodeJs</li>
-                            <li>AWS</li>
-                        </ul>
-                    </div>
-                </div>
+          </a>
+          <!-- Card 3 -->
+          <a href="#" class="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 will-blur" data-animate>
+            <img src="https://images.unsplash.com/photo-1508615039623-a25605d2b022?q=80&w=1600&auto=format&fit=crop" alt="Project 3" class="h-64 w-full object-cover transition duration-500 group-hover:scale-105 group-hover:blur-[2px]"/>
+            <div class="absolute inset-0 p-5 flex flex-col justify-end bg-gradient-to-t from-black/60 via-black/10 to-transparent">
+              <span class="text-sm text-blue-300/90">Brand</span>
+              <h3 class="text-xl font-bold">Creative Landing</h3>
+              <p class="text-slate-300/80 text-sm">Immersive brand story with parallax motion.</p>
             </div>
-        </div>
-    </section>
-
-    <section id="testimonials">
-        <div class="container">
-            <h2>Testimonials</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-item card">
-                    <img src="jumar.jpeg" alt="Jumar Newel profile picture">
-                    <blockquote>"I'm very pleased with the work, there are tweaks that will be needed but we have an extended process."</blockquote>
-                    <cite>Jumar Newel<br><span>United State of America</span></cite>
-                </div>
-                <div class="testimonial-item card">
-                    <img src="stef.jpeg" alt="Stefanomadde profile picture">
-                    <blockquote>"Excellent work, they designed everything according to my request and refined the design until it was truly what I was looking for. Awesome job!"</blockquote>
-                    <cite>Stefanomadde<br><span>Italy</span></cite>
-                </div>
-                <div class="testimonial-item card">
-                    <img src="martin.jpeg" alt="Martin profile picture">
-                    <blockquote>"The Team was great and kept me updated at every step. They took the time to understand my requirements and then guided me through the Phases of getting the app i needed"</blockquote>
-                    <cite>Martin<br><span>Argentina</span></cite>
-                </div>
+          </a>
+          <!-- Card 4 -->
+          <a href="#" class="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 will-blur" data-animate>
+            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1600&auto=format&fit=crop" alt="Project 4" class="h-64 w-full object-cover transition duration-500 group-hover:scale-105 group-hover:blur-[2px]"/>
+            <div class="absolute inset-0 p-5 flex flex-col justify-end bg-gradient-to-t from-black/60 via-black/10 to-transparent">
+              <span class="text-sm text-blue-300/90">Startup</span>
+              <h3 class="text-xl font-bold">Funding Pitch Site</h3>
+              <p class="text-slate-300/80 text-sm">Premium aesthetic, razor‑sharp copy & motion.</p>
             </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <p style="color: var(--subtle-text);">Ready to build your next great idea? I'm excited to hear from you!</p>
-            <div class="contact-info-grid">
-                <div class="contact-item">
-                    <h3>Phone</h3>
-                    <p><a href="tel:+66954306371">+66954306371</a></p>
-                </div>
-                <div class="contact-item">
-                    <h3>Email</h3>
-                    <p><a href="mailto:Aaron.company777@gmail.com">Aaron.company777@gmail.com</a></p>
-                </div>
-                <div class="contact-item">
-                    <h3>Bangkok Office</h3>
-                    <p style="color: var(--subtle-text);">Street 37 Soi Santisuk, Nakorn Chaisri Rd., Bangkok Thailand</p>
-                </div>
-                <div class="contact-item">
-                    <h3>USA Office</h3>
-                    <p style="color: var(--subtle-text);">2980 Riverside Dr Unit 125 Coral Springs 33065 FL</p>
-                </div>
+          </a>
+          <!-- Card 5 -->
+          <a href="#" class="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 will-blur" data-animate>
+            <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1600&auto=format&fit=crop" alt="Project 5" class="h-64 w-full object-cover transition duration-500 group-hover:scale-105 group-hover:blur-[2px]"/>
+            <div class="absolute inset-0 p-5 flex flex-col justify-end bg-gradient-to-t from-black/60 via-black/10 to-transparent">
+              <span class="text-sm text-blue-300/90">Agency</span>
+              <h3 class="text-xl font-bold">Portfolio Revamp</h3>
+              <p class="text-slate-300/80 text-sm">Case study driven layout with rich visuals.</p>
             </div>
+          </a>
+          <!-- Card 6 -->
+          <a href="#" class="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 will-blur" data-animate>
+            <img src="https://images.unsplash.com/photo-1541473215108-75f4614b7ae3?q=80&w=1600&auto=format&fit=crop" alt="Project 6" class="h-64 w-full object-cover transition duration-500 group-hover:scale-105 group-hover:blur-[2px]"/>
+            <div class="absolute inset-0 p-5 flex flex-col justify-end bg-gradient-to-t from-black/60 via-black/10 to-transparent">
+              <span class="text-sm text-blue-300/90">Product</span>
+              <h3 class="text-xl font-bold">Launch Microsite</h3>
+              <p class="text-slate-300/80 text-sm">Launch‑ready site with scroll‑bound reveals.</p>
+            </div>
+          </a>
         </div>
+      </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Bangkok Apps. All Rights Reserved.</p>
+    <!-- =================== ABOUT =================== -->
+    <section id="about" class="py-24 bg-gradient-to-b from-slate-950 to-slate-900">
+      <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+        <div class="will-blur" data-animate>
+          <h2 class="text-3xl md:text-4xl font-extrabold">About Me</h2>
+          <p class="mt-4 text-slate-300 leading-relaxed">
+            I’m a web developer focused on delightful, performant user experiences. I build
+            modern websites that blend motion, clarity and business results. From landing pages to
+            dashboards and brand websites — I’ve shipped projects across industries.
+          </p>
+          <div class="mt-8 grid grid-cols-3 gap-4 text-center">
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-6 will-blur" data-animate>
+              <div class="text-3xl font-extrabold">50+</div>
+              <div class="text-slate-400 text-sm mt-1">Projects</div>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-6 will-blur" data-animate>
+              <div class="text-3xl font-extrabold">10yr</div>
+              <div class="text-slate-400 text-sm mt-1">Experience</div>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-6 will-blur" data-animate>
+              <div class="text-3xl font-extrabold">98%</div>
+              <div class="text-slate-400 text-sm mt-1">Happy Clients</div>
+            </div>
+          </div>
         </div>
+        <div class="relative will-blur" data-animate>
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop" alt="workspace" class="rounded-3xl border border-white/10 shadow-2xl"/>
+          <div class="absolute -bottom-6 -left-6 hidden sm:block w-40 h-40 rounded-3xl bg-gradient-to-tr from-blue-500/40 to-cyan-400/40 blur-2xl"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== CONTACT =================== -->
+    <section id="contact" class="py-24 bg-slate-900">
+      <div class="max-w-5xl mx-auto px-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-extrabold will-blur" data-animate>Let’s Build Something Great</h2>
+        <p class="mt-3 text-slate-300 will-blur" data-animate>
+          Reach out on WhatsApp, email, or socials. Quick responses, clear plans.
+        </p>
+        <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <a href="https://wa.me/1234567890" class="rounded-3xl border border-white/10 bg-white/5 p-6 flex flex-col items-center gap-3 hover:bg-white/10 transition will-blur" data-animate>
+            <span class="text-xl font-semibold">WhatsApp</span>
+            <span class="text-slate-400">+1 234 567 890</span>
+          </a>
+          <a href="mailto:hello@example.com" class="rounded-3xl border border-white/10 bg-white/5 p-6 flex flex-col items-center gap-3 hover:bg-white/10 transition will-blur" data-animate>
+            <span class="text-xl font-semibold">Email</span>
+            <span class="text-slate-400">hello@example.com</span>
+          </a>
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-6 flex items-center justify-center gap-4 will-blur" data-animate>
+            <a class="hover:text-blue-400" href="https://twitter.com/" aria-label="Twitter">T</a>
+            <a class="hover:text-blue-400" href="https://www.linkedin.com/" aria-label="LinkedIn">in</a>
+            <a class="hover:text-blue-400" href="https://www.instagram.com/" aria-label="Instagram">IG</a>
+            <a class="hover:text-blue-400" href="https://github.com/" aria-label="GitHub">GH</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== FOOTER =================== -->
+    <footer class="py-10 border-t border-white/10 bg-slate-900/80">
+      <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
+        <p>© <span id="year"></span> MyPortfolio. All rights reserved.</p>
+        <a class="hover:text-blue-400" href="#home">Back to top ↑</a>
+      </div>
     </footer>
 
-</body>
+    <!-- =================== SCRIPTS =================== -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 900, easing: 'ease-out-quart', once: true });
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Mobile menu
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+      // GSAP blur-in on scroll
+      gsap.registerPlugin(ScrollTrigger);
+      document.querySelectorAll('[data-animate]').forEach((el) => {
+        gsap.fromTo(el, { filter: 'blur(14px)', y: 24, opacity: 0, scale: 0.98 }, {
+          filter: 'blur(0px)', y: 0, opacity: 1, scale: 1,
+          ease: 'power3.out', duration: 0.9,
+          scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none reverse' }
+        });
+      });
+
+      // Parallax effect for hero background
+      const heroImg = document.querySelector('#home img');
+      if (heroImg) {
+        gsap.to(heroImg, {
+          yPercent: 10, ease: 'none',
+          scrollTrigger: { trigger: '#home', start: 'top top', end: 'bottom top', scrub: true }
+        });
+      }
+    </script>
+  </body>
 </html>
