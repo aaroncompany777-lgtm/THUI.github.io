@@ -18,7 +18,7 @@
       background: #0f2027;
     }
 
-    /* Hero section with gradient + optional overlay */
+    /* Hero Section */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -28,32 +28,17 @@
       text-align: center;
       padding: 2rem;
 
-      /* Default gradient (always visible) */
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      background-size: cover;
-      background-position: center;
+      /* Overlay image + gradient on top */
+      background: 
+        linear-gradient(135deg, rgba(15,32,39,0.9), rgba(32,58,67,0.85), rgba(44,83,100,0.9)),
+        url("assets/hero-bg.jpg") center/cover no-repeat;
+      background-attachment: fixed;
       position: relative;
       overflow: hidden;
     }
 
-    /* Optional overlay image (will only load if the file exists) */
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: url("assets/overlay.jpg") center/cover no-repeat;
-      opacity: 0.25; /* control visibility of overlay */
-      mix-blend-mode: overlay; /* keeps it clean under gradient */
-      pointer-events: none;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-
     .hero h1 {
-      font-size: 3rem;
+      font-size: 3.5rem;
       font-weight: 600;
       margin-bottom: 1rem;
       background: linear-gradient(to right, #8ec5fc, #e0c3fc);
@@ -94,6 +79,7 @@
   </style>
 </head>
 <body>
+  <!-- Hero -->
   <section class="hero">
     <div class="hero-content">
       <h1>Welcome to Appxvantage</h1>
