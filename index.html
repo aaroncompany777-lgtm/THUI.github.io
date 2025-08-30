@@ -9,11 +9,44 @@
   <!-- AOS Scroll Animations -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <style>
+    /* Smooth fade-in on page load */
+    body {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    body.loaded {
+      opacity: 1;
+    }
+
+    /* Smooth section fade transition */
+    .fade-section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    .fade-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Parallax effect for portfolio images */
+    .parallax {
+      transform: translateY(0px);
+      transition: transform 0.3s ease-out;
+    }
+  </style>
 </head>
-<body class="bg-black text-white font-sans">
+<body class="bg-gradient-to-b from-[#0f2027] via-[#203a43] to-[#2c5364] text-white font-sans">
 
   <!-- Navbar -->
-  <header class="fixed w-full z-50 backdrop-blur bg-black/60 border-b border-gray-800">
+  <header class="fixed w-full z-50 backdrop-blur bg-[#0f2027]/80 border-b border-gray-800">
     <div class="container mx-auto flex justify-between items-center p-4">
       <!-- Logo -->
       <a href="#" class="flex items-center space-x-2" data-aos="fade-right">
@@ -29,11 +62,11 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="h-screen flex flex-col justify-center items-center text-center px-6 bg-gradient-to-b from-black to-gray-900">
+  <section class="fade-section h-screen flex flex-col justify-center items-center text-center px-6 bg-gradient-to-b from-[#0f2027] via-[#203a43] to-[#2c5364]">
     <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight" data-aos="zoom-in">
       Elevating Your Digital Presence
     </h1>
-    <p class="text-gray-400 text-lg md:text-xl max-w-2xl mb-8" data-aos="fade-up" data-aos-delay="200">
+    <p class="text-gray-300 text-lg md:text-xl max-w-2xl mb-8" data-aos="fade-up" data-aos-delay="200">
       AppxVantage crafts premium, sleek, and innovative digital experiences — inspired by world-class design.
     </p>
     <div class="flex space-x-4" data-aos="fade-up" data-aos-delay="400">
@@ -49,9 +82,9 @@
   </section>
 
   <!-- About Section -->
-  <section id="about" class="p-16 bg-black">
-    <h2 class="text-4xl font-bold text-center mb-6" data-aos="fade-up">About Us</h2>
-    <p class="max-w-3xl mx-auto text-center text-gray-400 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+  <section id="about" class="fade-section p-16 bg-[#0f2027]">
+    <h2 class="text-4xl font-bold text-center mb-6">About Us</h2>
+    <p class="max-w-3xl mx-auto text-center text-gray-300 text-lg leading-relaxed">
       At <span class="font-semibold text-white">AppxVantage</span>, we merge design and technology to deliver 
       solutions that feel effortless, powerful, and timeless. Our philosophy is simple: 
       <span class="italic">premium quality, minimalism, and innovation.</span>
@@ -59,33 +92,33 @@
   </section>
 
   <!-- Portfolio Section -->
-  <section id="portfolio" class="p-16 bg-gradient-to-b from-gray-900 to-black">
-    <h2 class="text-4xl font-bold text-center mb-12" data-aos="fade-up">Our Work</h2>
+  <section id="portfolio" class="fade-section p-16 bg-gradient-to-b from-[#203a43] to-[#2c5364]">
+    <h2 class="text-4xl font-bold text-center mb-12">Our Work</h2>
     <div class="grid md:grid-cols-3 gap-8">
-      <div class="overflow-hidden rounded-2xl shadow-xl transform hover:scale-105 transition duration-500" data-aos="zoom-in">
-        <img src="assets/project1.jpg" alt="Project 1" class="w-full h-72 object-cover">
+      <div class="overflow-hidden rounded-2xl shadow-xl">
+        <img src="assets/project1.jpg" alt="Project 1" class="parallax w-full h-72 object-cover rounded-2xl">
       </div>
-      <div class="overflow-hidden rounded-2xl shadow-xl transform hover:scale-105 transition duration-500" data-aos="zoom-in" data-aos-delay="200">
-        <img src="assets/project2.jpg" alt="Project 2" class="w-full h-72 object-cover">
+      <div class="overflow-hidden rounded-2xl shadow-xl">
+        <img src="assets/project2.jpg" alt="Project 2" class="parallax w-full h-72 object-cover rounded-2xl">
       </div>
-      <div class="overflow-hidden rounded-2xl shadow-xl transform hover:scale-105 transition duration-500" data-aos="zoom-in" data-aos-delay="400">
-        <img src="assets/project3.jpg" alt="Project 3" class="w-full h-72 object-cover">
+      <div class="overflow-hidden rounded-2xl shadow-xl">
+        <img src="assets/project3.jpg" alt="Project 3" class="parallax w-full h-72 object-cover rounded-2xl">
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="p-16 bg-black">
-    <h2 class="text-4xl font-bold text-center mb-8" data-aos="fade-up">Get in Touch</h2>
-    <form class="max-w-xl mx-auto bg-gray-900 shadow-2xl p-8 rounded-2xl space-y-4" data-aos="fade-up" data-aos-delay="200">
-      <input type="text" placeholder="Your Name" class="w-full p-4 bg-black border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-gray-400 outline-none">
-      <input type="email" placeholder="Your Email" class="w-full p-4 bg-black border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-gray-400 outline-none">
-      <textarea placeholder="Your Message" rows="4" class="w-full p-4 bg-black border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-gray-400 outline-none"></textarea>
+  <section id="contact" class="fade-section p-16 bg-[#0f2027]">
+    <h2 class="text-4xl font-bold text-center mb-8">Get in Touch</h2>
+    <form class="max-w-xl mx-auto bg-[#203a43] shadow-2xl p-8 rounded-2xl space-y-4">
+      <input type="text" placeholder="Your Name" class="w-full p-4 bg-black border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-blue-400 outline-none">
+      <input type="email" placeholder="Your Email" class="w-full p-4 bg-black border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-blue-400 outline-none">
+      <textarea placeholder="Your Message" rows="4" class="w-full p-4 bg-black border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-blue-400 outline-none"></textarea>
       <button type="submit" class="w-full bg-white text-black px-6 py-4 rounded-xl font-semibold shadow-lg hover:bg-gray-200 transition">
         Send Message
       </button>
     </form>
-    <div class="text-center mt-6" data-aos="fade-up" data-aos-delay="400">
+    <div class="text-center mt-6">
       <p class="text-gray-400">Or connect instantly:</p>
       <a href="https://wa.me/1234567890" target="_blank" class="text-green-400 font-semibold hover:text-green-500">📱 WhatsApp Us</a>
       <p class="font-semibold text-gray-300">✉️ Email: hello@appxvantage.com</p>
@@ -93,8 +126,8 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-black border-t border-gray-800 text-gray-500 text-center py-6" data-aos="fade-up">
-    <p>&copy; 2017 AppxVantage. Premium by Design.</p>
+  <footer class="fade-section bg-[#0f2027] border-t border-gray-800 text-gray-400 text-center py-6">
+    <p>&copy; 2025 AppxVantage. Premium by Design.</p>
     <div class="flex justify-center space-x-6 mt-4 text-sm">
       <a href="#" class="hover:text-white">LinkedIn</a>
       <a href="#" class="hover:text-white">Twitter</a>
@@ -102,8 +135,36 @@
     </div>
   </footer>
 
-  <!-- Init AOS -->
+  <!-- Init AOS + custom fade + parallax -->
   <script>
+    // Body fade-in
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+      revealSections();
+    });
+
+    // Section fade-in
+    function revealSections() {
+      const sections = document.querySelectorAll('.fade-section');
+      const windowHeight = window.innerHeight;
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < windowHeight - 100) {
+          section.classList.add("visible");
+        }
+      });
+    }
+    window.addEventListener("scroll", revealSections);
+
+    // Parallax effect
+    window.addEventListener("scroll", () => {
+      const scrolled = window.scrollY;
+      document.querySelectorAll(".parallax").forEach(img => {
+        img.style.transform = `translateY(${scrolled * 0.1}px)`;
+      });
+    });
+
+    // AOS animations
     AOS.init({
       duration: 1000,
       once: true
