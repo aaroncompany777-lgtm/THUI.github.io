@@ -5,76 +5,98 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AppxVantage</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/framer-motion/dist/framer-motion.umd.js"></script>
+
+  <!-- AOS Library for Scroll Animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 <body class="bg-gray-50 text-gray-900">
 
   <!-- Navbar -->
-  <header class="bg-white shadow-md fixed w-full z-50">
-    <div class="container mx-auto flex justify-between items-center p-4">
+  <header class="bg-gradient-to-r from-blue-600 to-purple-700 fixed w-full z-50 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center p-4 text-white">
       <!-- Logo -->
-      <a href="#" class="flex items-center space-x-2">
-        <img src="assets/logo.png" alt="Logo" class="h-10 w-10">
+      <a href="#" class="flex items-center space-x-2" data-aos="fade-right">
+        <img src="assets/logo.png" alt="Logo" class="h-10 w-10 rounded-full shadow-md">
         <span class="text-xl font-bold">AppxVantage</span>
       </a>
-      <nav class="space-x-6 hidden md:flex">
-        <a href="#about" class="hover:text-blue-600">About</a>
-        <a href="#portfolio" class="hover:text-blue-600">Portfolio</a>
-        <a href="#contact" class="hover:text-blue-600">Contact</a>
+      <nav class="space-x-6 hidden md:flex font-medium" data-aos="fade-down">
+        <a href="#about" class="hover:text-yellow-300 transition">About</a>
+        <a href="#portfolio" class="hover:text-yellow-300 transition">Portfolio</a>
+        <a href="#contact" class="hover:text-yellow-300 transition">Contact</a>
       </nav>
-      <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-xl shadow-md hover:bg-blue-700">Get Started</a>
+      <a href="#contact" class="bg-white text-blue-700 px-4 py-2 rounded-xl shadow-md hover:bg-gray-200 transition" data-aos="fade-left">Get Started</a>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="h-screen flex flex-col justify-center items-center bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center">
-    <h1 class="text-5xl md:text-6xl font-bold mb-4">Welcome to AppxVantage</h1>
-    <p class="text-lg md:text-2xl mb-6">We build modern, scalable, and impactful web solutions.</p>
-    <a href="#portfolio" class="bg-white text-blue-600 px-6 py-3 rounded-xl shadow-md hover:bg-gray-200">See Our Work</a>
+  <section class="h-screen flex flex-col justify-center items-center bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white text-center px-6">
+    <h1 class="text-5xl md:text-6xl font-extrabold mb-6 drop-shadow-lg" data-aos="zoom-in">Welcome to AppxVantage</h1>
+    <p class="text-lg md:text-2xl mb-8 max-w-2xl" data-aos="fade-up" data-aos-delay="200">
+      We build modern, scalable, and impactful web solutions that help your business thrive in the digital world.
+    </p>
+    <a href="#portfolio" class="bg-white text-blue-700 px-8 py-3 rounded-full font-semibold shadow-xl hover:bg-gray-200 transition" data-aos="fade-up" data-aos-delay="400">See Our Work</a>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="p-10 bg-gray-100">
-    <h2 class="text-3xl font-bold text-center mb-6">About Us</h2>
-    <p class="max-w-3xl mx-auto text-center text-lg">
-      At <span class="font-semibold">AppxVantage</span>, we specialize in creating digital experiences that elevate businesses. 
-      Our team blends design, technology, and innovation to deliver results that matter.
+  <section id="about" class="p-16 bg-gray-100">
+    <h2 class="text-4xl font-bold text-center mb-6 text-gray-800" data-aos="fade-up">About Us</h2>
+    <p class="max-w-3xl mx-auto text-center text-lg text-gray-700 leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+      At <span class="font-semibold">AppxVantage</span>, we specialize in creating premium digital experiences.
+      Our team blends design, technology, and innovation to deliver world-class solutions that truly make an impact.
     </p>
   </section>
 
   <!-- Portfolio Section -->
-  <section id="portfolio" class="p-10 bg-white">
-    <h2 class="text-3xl font-bold text-center mb-8">Our Portfolio</h2>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="overflow-hidden rounded-2xl shadow-lg hover:scale-105 transition-transform duration-500">
+  <section id="portfolio" class="p-16 bg-gradient-to-r from-purple-600 to-blue-600 text-white">
+    <h2 class="text-4xl font-bold text-center mb-10" data-aos="fade-up">Our Portfolio</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="overflow-hidden rounded-2xl shadow-xl transform hover:scale-105 transition duration-500 bg-white" data-aos="zoom-in">
         <img src="assets/project1.jpg" alt="Project 1" class="w-full h-64 object-cover">
       </div>
-      <div class="overflow-hidden rounded-2xl shadow-lg hover:scale-105 transition-transform duration-500">
+      <div class="overflow-hidden rounded-2xl shadow-xl transform hover:scale-105 transition duration-500 bg-white" data-aos="zoom-in" data-aos-delay="200">
         <img src="assets/project2.jpg" alt="Project 2" class="w-full h-64 object-cover">
       </div>
-      <div class="overflow-hidden rounded-2xl shadow-lg hover:scale-105 transition-transform duration-500">
+      <div class="overflow-hidden rounded-2xl shadow-xl transform hover:scale-105 transition duration-500 bg-white" data-aos="zoom-in" data-aos-delay="400">
         <img src="assets/project3.jpg" alt="Project 3" class="w-full h-64 object-cover">
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="p-10 bg-gray-100">
-    <h2 class="text-3xl font-bold text-center mb-6">Get in Touch</h2>
-    <form class="max-w-xl mx-auto bg-white shadow-lg p-6 rounded-2xl space-y-4">
-      <input type="text" placeholder="Your Name" class="w-full p-3 border rounded-lg">
-      <input type="email" placeholder="Your Email" class="w-full p-3 border rounded-lg">
-      <textarea placeholder="Your Message" rows="4" class="w-full p-3 border rounded-lg"></textarea>
-      <button type="submit" class="w-full bg-blue-600 text-white px-6 py-3 rounded-xl shadow-md hover:bg-blue-700">
+  <section id="contact" class="p-16 bg-gray-100">
+    <h2 class="text-4xl font-bold text-center mb-8 text-gray-800" data-aos="fade-up">Get in Touch</h2>
+    <form class="max-w-xl mx-auto bg-white shadow-2xl p-8 rounded-2xl space-y-4" data-aos="fade-up" data-aos-delay="200">
+      <input type="text" placeholder="Your Name" class="w-full p-4 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+      <input type="email" placeholder="Your Email" class="w-full p-4 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+      <textarea placeholder="Your Message" rows="4" class="w-full p-4 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"></textarea>
+      <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-purple-700 text-white px-6 py-4 rounded-xl font-semibold shadow-lg hover:opacity-90 transition">
         Send Message
       </button>
     </form>
+    <div class="text-center mt-6" data-aos="fade-up" data-aos-delay="400">
+      <p class="text-gray-700">Or reach us directly:</p>
+      <p class="font-semibold text-blue-600">📱 WhatsApp: +123456789</p>
+      <p class="font-semibold text-blue-600">✉️ Email: hello@appxvantage.com</p>
+    </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-300 text-center py-6">
-    <p>&copy; 2017 AppxVantage. All Rights Reserved.</p>
+  <footer class="bg-gradient-to-r from-blue-700 to-purple-800 text-gray-200 text-center py-6" data-aos="fade-up">
+    <p>&copy; 2025 AppxVantage. All Rights Reserved.</p>
+    <div class="flex justify-center space-x-6 mt-4">
+      <a href="#" class="hover:text-yellow-300">LinkedIn</a>
+      <a href="#" class="hover:text-yellow-300">Twitter</a>
+      <a href="#" class="hover:text-yellow-300">Instagram</a>
+    </div>
   </footer>
 
+  <!-- Init AOS -->
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
 </body>
 </html>
