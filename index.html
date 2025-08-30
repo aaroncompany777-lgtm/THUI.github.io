@@ -127,23 +127,58 @@
     .clients-logos img:hover { opacity: 1; }
 
     /* Contact */
-    .contact-cta {
-      margin-top: 2rem;
-    }
+    .contact {
+  padding: 100px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: white;
+}
 
-    .cta-btn {
-      background: linear-gradient(135deg, #2193b0, #6dd5ed);
-      padding: 1rem 2rem;
-      border-radius: 50px;
-      text-decoration: none;
-      color: white;
-      font-weight: 500;
-      margin: 0.5rem;
-      display: inline-block;
-      transition: transform 0.2s;
-    }
+.contact h2 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
 
-    .cta-btn:hover { transform: translateY(-3px); }
+.contact p {
+  font-size: 1.2rem;
+  margin-bottom: 50px;
+  opacity: 0.9;
+}
+
+.contact-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.contact-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(6px);
+}
+
+.contact-btn:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Platform-specific accents */
+.whatsapp:hover { background: #25D366; }
+.email:hover { background: #EA4335; }
+.facebook:hover { background: #1877F2; }
+.linkedin:hover { background: #0A66C2; }
+.github:hover { background: #333; }
 
     /* Animations on scroll */
     .fade-in {
@@ -201,14 +236,38 @@
   </section>
 
   <!-- Contact -->
-  <section class="fade-in">
-    <h2>Contact Us</h2>
-    <p>We’d love to hear from you. Let’s build something exceptional together.</p>
-    <div class="contact-cta">
-      <a class="cta-btn" href="mailto:info@appxvantage.com">Email Us</a>
-      <a class="cta-btn" href="https://wa.me/1234567890" target="_blank">WhatsApp</a>
-    </div>
-  </section>
+<section class="contact" id="contact">
+  <h2>Contact Us</h2>
+  <p>We’d love to hear from you! Reach out via WhatsApp, email, or connect on social platforms.</p>
+
+  <div class="contact-options">
+    <!-- WhatsApp -->
+    <a href="https://wa.me/1234567890" target="_blank" class="contact-btn whatsapp">
+      <i class="fab fa-whatsapp"></i> WhatsApp
+    </a>
+
+    <!-- Email -->
+    <a href="mailto:info@appxvantage.com" class="contact-btn email">
+      <i class="fas fa-envelope"></i> Email Us
+    </a>
+
+    <!-- Facebook -->
+    <a href="https://facebook.com/yourpage" target="_blank" class="contact-btn facebook">
+      <i class="fab fa-facebook"></i> Facebook
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-btn linkedin">
+      <i class="fab fa-linkedin"></i> LinkedIn
+    </a>
+
+    <!-- GitHub -->
+    <a href="https://github.com/yourusername" target="_blank" class="contact-btn github">
+      <i class="fab fa-github"></i> GitHub
+    </a>
+  </div>
+</section>
+
 
   <script>
     // IntersectionObserver for fade-in animations
