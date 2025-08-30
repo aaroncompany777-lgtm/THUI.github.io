@@ -1,251 +1,80 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>App x vantage</title>
-    <meta name="description" content="Premium portfolio website with motion effects, blur-on-scroll, and WhatsApp/social CTAs. Single-file for GitHub Pages."/>
-    <meta name="theme-color" content="#0f172a" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AppxVantage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/framer-motion/dist/framer-motion.umd.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
 
-    <!-- TailwindCSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Navbar -->
+  <header class="bg-white shadow-md fixed w-full z-50">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <!-- Logo -->
+      <a href="#" class="flex items-center space-x-2">
+        <img src="assets/logo.png" alt="Logo" class="h-10 w-10">
+        <span class="text-xl font-bold">AppxVantage</span>
+      </a>
+      <nav class="space-x-6 hidden md:flex">
+        <a href="#about" class="hover:text-blue-600">About</a>
+        <a href="#portfolio" class="hover:text-blue-600">Portfolio</a>
+        <a href="#contact" class="hover:text-blue-600">Contact</a>
+      </nav>
+      <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-xl shadow-md hover:bg-blue-700">Get Started</a>
+    </div>
+  </header>
 
-    <!-- AOS (Animate on Scroll) -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <!-- Hero Section -->
+  <section class="h-screen flex flex-col justify-center items-center bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center">
+    <h1 class="text-5xl md:text-6xl font-bold mb-4">Welcome to AppxVantage</h1>
+    <p class="text-lg md:text-2xl mb-6">We build modern, scalable, and impactful web solutions.</p>
+    <a href="#portfolio" class="bg-white text-blue-600 px-6 py-3 rounded-xl shadow-md hover:bg-gray-200">See Our Work</a>
+  </section>
 
-    <!-- GSAP + ScrollTrigger (for advanced scroll/motion effects) -->
-    <script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <!-- About Section -->
+  <section id="about" class="p-10 bg-gray-100">
+    <h2 class="text-3xl font-bold text-center mb-6">About Us</h2>
+    <p class="max-w-3xl mx-auto text-center text-lg">
+      At <span class="font-semibold">AppxVantage</span>, we specialize in creating digital experiences that elevate businesses. 
+      Our team blends design, technology, and innovation to deliver results that matter.
+    </p>
+  </section>
 
-    <!-- Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-
-    <style>
-      :root { --glass: rgba(15, 23, 42, 0.65); }
-      html { scroll-behavior: smooth; }
-      body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
-      /* Subtle grain for premium feel */
-      .grain { position: relative; }
-      .grain::before {
-        content: "";
-        pointer-events: none;
-        position: absolute; inset: 0; opacity: .08; mix-blend-mode: overlay;
-        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity="0.9"/></svg>');
-      }
-      /* Blur-in utility for GSAP */
-      .will-blur { filter: blur(14px) saturate(70%); transform: translateY(24px) scale(0.98); opacity: 0; }
-      .is-sharp { filter: blur(0) saturate(100%); transform: translateY(0) scale(1); opacity: 1; transition: filter .6s ease, transform .6s ease, opacity .6s ease; }
-      /* Nice focus outline */
-      a, button { outline-color: #60a5fa; outline-offset: 3px; }
-    </style>
-  </head>
-
-  <body class="bg-slate-950 text-slate-100 grain">
-    <!-- =================== NAVBAR =================== -->
-    <header class="fixed top-0 inset-x-0 z-50 backdrop-blur-lg bg-slate-950/60 border-b border-white/5">
-      <div class="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
-        <a href="#home" class="flex items-center gap-3">
-          <div class="h-8 w-8 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-400 shadow-lg"></div>
-          <span class="text-xl font-extrabold tracking-tight">MyPortfolio</span>
-        </a>
-        <nav class="hidden md:flex items-center gap-8 text-sm">
-          <a class="hover:text-blue-400 transition" href="#home">Home</a>
-          <a class="hover:text-blue-400 transition" href="#portfolio">Portfolio</a>
-          <a class="hover:text-blue-400 transition" href="#about">About</a>
-          <a class="hover:text-blue-400 transition" href="#contact">Contact</a>
-        </nav>
-        <div class="flex items-center gap-3">
-          <a href="https://wa.me/1234567890" class="hidden sm:inline-flex px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 transition shadow-lg shadow-blue-600/20">WhatsApp</a>
-          <button id="menuBtn" class="md:hidden inline-flex p-2 rounded-lg bg-white/5 hover:bg-white/10" aria-label="Open menu">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="opacity-80"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-          </button>
-        </div>
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="p-10 bg-white">
+    <h2 class="text-3xl font-bold text-center mb-8">Our Portfolio</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="overflow-hidden rounded-2xl shadow-lg hover:scale-105 transition-transform duration-500">
+        <img src="assets/project1.jpg" alt="Project 1" class="w-full h-64 object-cover">
       </div>
-      <!-- Mobile menu -->
-      <div id="mobileMenu" class="md:hidden hidden border-t border-white/5">
-        <div class="px-6 py-4 flex flex-col gap-3 text-sm bg-slate-900/80">
-          <a class="hover:text-blue-400" href="#home">Home</a>
-          <a class="hover:text-blue-400" href="#portfolio">Portfolio</a>
-          <a class="hover:text-blue-400" href="#about">About</a>
-          <a class="hover:text-blue-400" href="#contact">Contact</a>
-        </div>
+      <div class="overflow-hidden rounded-2xl shadow-lg hover:scale-105 transition-transform duration-500">
+        <img src="assets/project2.jpg" alt="Project 2" class="w-full h-64 object-cover">
       </div>
-    </header>
-
-    <!-- =================== HERO =================== -->
-    <section id="home" class="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
-      <!-- Background image (Unsplash placeholder; replace with your own) -->
-      <img src="/Users/agha/Downloads/" alt="Background" class="absolute inset-0 w-full h-full object-cover opacity-40"/>
-      
-      <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        <div class="mx-auto max-w-3xl p-8 md:p-12 rounded-3xl bg-[var(--glass)] backdrop-blur-xl border border-white/10 shadow-2xl will-blur" data-animate>
-          <p class="uppercase tracking-[0.25em] text-xs text-blue-300/80">Android • UI/UX • IOs</p>
-          <h1 class="mt-3 text-4xl md:text-6xl font-extrabold leading-tight">
-            I craft <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-400 to-indigo-400">premium</span> digital experiences
-          </h1>
-          <p class="mt-4 text-slate-300/90 text-lg">
-            Transforming ideas into reality with seamless Android app development.
-          </p>
-          <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="#portfolio" class="px-6 py-3 rounded-2xl bg-blue-600 hover:bg-blue-500 transition shadow-lg shadow-blue-600/25">View Portfolio</a>
-            <a href="https://wa.me/1234567890" class="px-6 py-3 rounded-2xl border border-white/15 bg-white/5 hover:bg-white/10 transition flex items-center gap-2">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.94 11.94 0 0 0 12.04 0C5.72 0 .58 5.14.58 11.46c0 2.02.53 3.98 1.55 5.7L0 24l6.99-2.07a11.42 11.42 0 0 0 5.05 1.2h.01c6.32 0 11.46-5.14 11.46-11.46 0-3.06-1.19-5.93-3.48-8.19zM12.05 21.2a9.7 9.7 0 0 1-4.95-1.36l-.36-.21-4.15 1.23 1.23-4.04-.23-.39a9.77 9.77 0 1 1 8.46 4.77zm5.54-7.29c-.3-.15-1.79-.88-2.07-.98-.28-.1-.49-.15-.7.15-.2.3-.8.98-.98 1.18-.18.2-.36.23-.66.08-.3-.15-1.26-.46-2.4-1.46-.89-.79-1.49-1.77-1.67-2.07-.18-.3-.02-.46.13-.61.13-.13.3-.33.43-.49.15-.18.2-.3.3-.51.1-.2.05-.38-.02-.53-.08-.15-.7-1.66-.96-2.27-.25-.61-.51-.52-.7-.53h-.6c-.2 0-.53.08-.8.38-.28.3-1.06 1.03-1.06 2.51 0 1.48 1.09 2.92 1.24 3.12.15.2 2.15 3.28 5.2 4.6.73.32 1.3.5 1.74.64.73.23 1.4.2 1.93.12.59-.09 1.79-.73 2.04-1.43.25-.69.25-1.28.18-1.41-.07-.13-.27-.2-.56-.35z"/></svg>
-              WhatsApp
-            </a>
-          </div>
-        </div>
+      <div class="overflow-hidden rounded-2xl shadow-lg hover:scale-105 transition-transform duration-500">
+        <img src="assets/project3.jpg" alt="Project 3" class="w-full h-64 object-cover">
       </div>
+    </div>
+  </section>
 
-      <!-- subtle gradient overlay -->
-      <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-950"></div>
-    </section>
+  <!-- Contact Section -->
+  <section id="contact" class="p-10 bg-gray-100">
+    <h2 class="text-3xl font-bold text-center mb-6">Get in Touch</h2>
+    <form class="max-w-xl mx-auto bg-white shadow-lg p-6 rounded-2xl space-y-4">
+      <input type="text" placeholder="Your Name" class="w-full p-3 border rounded-lg">
+      <input type="email" placeholder="Your Email" class="w-full p-3 border rounded-lg">
+      <textarea placeholder="Your Message" rows="4" class="w-full p-3 border rounded-lg"></textarea>
+      <button type="submit" class="w-full bg-blue-600 text-white px-6 py-3 rounded-xl shadow-md hover:bg-blue-700">
+        Send Message
+      </button>
+    </form>
+  </section>
 
-    <!-- =================== PORTFOLIO =================== -->
-    <section id="portfolio" class="py-24 bg-slate-950">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="flex items-end justify-between flex-wrap gap-6">
-          <div>
-            <h2 class="text-3xl md:text-4xl font-extrabold">Our Work</h2>
-            <p class="mt-2 text-slate-400">My work is a testament to the belief that every challenge is an opportunity to innovate..</p>
-          </div>
-          <a href="#contact" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10">
-            Hire Me
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 text-center py-6">
+    <p>&copy; 2017 AppxVantage. All Rights Reserved.</p>
+  </footer>
 
-        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Card 1 -->
-          <a href="#" class="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 will-blur" data-animate>
-            <img src="/Users/agha/Desktop/Screenshot 2025-08-28 at 9.20.02 PM.png" alt="Project 1" class="h-64 w-full object-cover transition duration-500 group-hover:scale-105 group-hover:blur-[2px]"/>
-            <div class="absolute inset-0 p-5 flex flex-col justify-end bg-gradient-to-t from-black/60 via-black/10 to-transparent">
-              <span class="text-sm text-blue-300/90">The Fitness App</span>
-              <h3 class="text-xl font-bold">Modern Front End</h3>
-              <p class="text-slate-300/80 text-sm">Next-gen storefront with motion and performance.</p>
-            </div>
-          </a>
-          <!-- Card 2 -->
-          <a href="#" class="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 will-blur" data-animate>
-            <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?q=80&w=1600&auto=format&fit=crop" alt="Project 2" class="h-64 w-full object-cover transition duration-500 group-hover:scale-105 group-hover:blur-[2px]"/>
-            <div class="absolute inset-0 p-5 flex flex-col justify-end bg-gradient-to-t from-black/60 via-black/10 to-transparent">
-              <span class="text-sm text-blue-300/90">Lauchmedia Arts</span>
-              <h3 class="text-xl font-bold">Analytics Dashboard</h3>
-              <p class="text-slate-300/80 text-sm">Clean data viz with delightful micro‑interactions.</p>
-            </div>
-          </a>
-          <!-- Card 3 -->
-          <a href="#" class="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 will-blur" data-animate>
-            <img src="https://images.unsplash.com/photo-1508615039623-a25605d2b022?q=80&w=1600&auto=format&fit=crop" alt="Project 3" class="h-64 w-full object-cover transition duration-500 group-hover:scale-105 group-hover:blur-[2px]"/>
-            <div class="absolute inset-0 p-5 flex flex-col justify-end bg-gradient-to-t from-black/60 via-black/10 to-transparent">
-              <span class="text-sm text-blue-300/90">Brand</span>
-              <h3 class="text-xl font-bold">Creative Landing</h3>
-              <p class="text-slate-300/80 text-sm">Immersive brand story with parallax motion.</p>
-            </div>
-          </a>
-    
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- =================== ABOUT =================== -->
-    <section id="about" class="py-24 bg-gradient-to-b from-slate-950 to-slate-900">
-      <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
-        <div class="will-blur" data-animate>
-          <h2 class="text-3xl md:text-4xl font-extrabold">About Us</h2>
-          <p class="mt-4 text-slate-300 leading-relaxed">
-           At the core of our work is a simple but powerful principle: to build apps that don't just exist, but thrive. We believe that modern app development is about more than just functionality; it's about crafting an intuitive and innovative user experience that feels both effortless and essential.
-
-Our portfolio is a testament to this philosophy. Each app is a unique solution, meticulously crafted to meet a specific need with a modern and innovative approach. We take pride in building digital experiences that stand out in a crowded market and leave a lasting impression.
-          </p>
-          <div class="mt-8 grid grid-cols-3 gap-4 text-center">
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-6 will-blur" data-animate>
-              <div class="text-3xl font-extrabold">50+</div>
-              <div class="text-slate-400 text-sm mt-1">Projects</div>
-            </div>
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-6 will-blur" data-animate>
-              <div class="text-3xl font-extrabold">10yr</div>
-              <div class="text-slate-400 text-sm mt-1">Experience</div>
-            </div>
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-6 will-blur" data-animate>
-              <div class="text-3xl font-extrabold">98%</div>
-              <div class="text-slate-400 text-sm mt-1">Happy Clients</div>
-            </div>
-          </div>
-        </div>
-        <div class="relative will-blur" data-animate>
-          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop" alt="workspace" class="rounded-3xl border border-white/10 shadow-2xl"/>
-          <div class="absolute -bottom-6 -left-6 hidden sm:block w-40 h-40 rounded-3xl bg-gradient-to-tr from-blue-500/40 to-cyan-400/40 blur-2xl"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =================== CONTACT =================== -->
-    <section id="contact" class="py-24 bg-slate-900">
-      <div class="max-w-5xl mx-auto px-6 text-center">
-        <h2 class="text-3xl md:text-4xl font-extrabold will-blur" data-animate>Let’s Build Something Great</h2>
-        <p class="mt-3 text-slate-300 will-blur" data-animate>
-          Reach out on WhatsApp, email, or socials. Quick responses, clear plans.
-        </p>
-        <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <a href="https://wa.me/1234567890" class="rounded-3xl border border-white/10 bg-white/5 p-6 flex flex-col items-center gap-3 hover:bg-white/10 transition will-blur" data-animate>
-            <span class="text-xl font-semibold">WhatsApp</span>
-            <span class="text-slate-400">+1 234 567 890</span>
-          </a>
-          <a href="Aaron.company777@gmail.com" class="rounded-3xl border border-white/10 bg-white/5 p-6 flex flex-col items-center gap-3 hover:bg-white/10 transition will-blur" data-animate>
-            <span class="text-xl font-semibold">Email</span>
-            <span class="text-slate-400">Aaron.company777@</span>
-          </a>
-          <div class="rounded-3xl border border-white/10 bg-white/5 p-6 flex items-center justify-center gap-4 will-blur" data-animate>
-            <a class="hover:text-blue-400" href="https://facebook.com/" aria-label="Facebook">FB</a>
-            <a class="hover:text-blue-400" href="https://www.linkedin.com/" aria-label="LinkedIn">LdIn</a>
-            <a class="hover:text-blue-400" href="https://www.instagram.com/" aria-label="Instagram">IG</a>
-            <a class="hover:text-blue-400" href="https://github.com/" aria-label="GitHub">GH</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =================== FOOTER =================== -->
-    <footer class="py-10 border-t border-white/10 bg-slate-900/80">
-      <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
-        <p>© <span id="year"></span> MyPortfolio. All rights reserved.</p>
-        <a class="hover:text-blue-400" href="#home">Back to top ↑</a>
-      </div>
-    </footer>
-
-    <!-- =================== SCRIPTS =================== -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init({ duration: 900, easing: 'ease-out-quart', once: true });
-      document.getElementById('year').textContent = new Date().getFullYear();
-
-      // Mobile menu
-      const menuBtn = document.getElementById('menuBtn');
-      const mobileMenu = document.getElementById('mobileMenu');
-      menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-
-      // GSAP blur-in on scroll
-      gsap.registerPlugin(ScrollTrigger);
-      document.querySelectorAll('[data-animate]').forEach((el) => {
-        gsap.fromTo(el, { filter: 'blur(14px)', y: 24, opacity: 0, scale: 0.98 }, {
-          filter: 'blur(0px)', y: 0, opacity: 1, scale: 1,
-          ease: 'power3.out', duration: 0.9,
-          scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none reverse' }
-        });
-      });
-
-      // Parallax effect for hero background
-      const heroImg = document.querySelector('#home img');
-      if (heroImg) {
-        gsap.to(heroImg, {
-          yPercent: 10, ease: 'none',
-          scrollTrigger: { trigger: '#home', start: 'top top', end: 'bottom top', scrub: true }
-        });
-      }
-    </script>
-  </body>
+</body>
 </html>
