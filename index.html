@@ -37,6 +37,72 @@
       max-width: 800px;
       margin: 0 auto 2rem;
     }
+ /* NAVIGATION BAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 50px;
+  background: rgba(15,32,39, 0.7); /* semi-transparent over gradient */
+  backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.nav-container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #4fc3f7; /* accent color */
+  transform: translateY(-2px);
+}
+
+/* Contact button styled differently */
+.cta-nav {
+  padding: 8px 18px;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #4fc3f7, #2c5364);
+  color: white !important;
+  font-weight: 600;
+}
+
+.cta-nav:hover {
+  background: linear-gradient(135deg, #2c5364, #4fc3f7);
+  transform: translateY(-2px);
+}
 
     /* Hero */
     .hero {
@@ -47,7 +113,7 @@
       align-items: center;
       text-align: center;
       background: 
-        linear-gradient(135deg, rgba(15,32,39,0.7), rgba(32,58,67,0.65), rgba(44,83,100,0.7)),
+        linear-gradient(135deg, rgba(15,32,39,0.75), rgba(32,58,67,0.7), rgba(44,83,100,0.7.5)),
         url("assets/Herobg.jpg") center/cover no-repeat;
       background-attachment: fixed;
     }
@@ -70,6 +136,13 @@
   color: #111827;
 }
 
+.technologies {
+  padding: 100px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* same as hero/contact */
+  color: white;
+}
+
 .technologies h2 {
   font-size: 2.5rem;
   font-weight: 600;
@@ -79,7 +152,7 @@
 .technologies p {
   font-size: 1.2rem;
   margin-bottom: 50px;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .tech-logos {
@@ -94,15 +167,14 @@
   max-height: 60px;
   opacity: 0.7;
   transition: all 0.3s ease;
-  filter: grayscale(100%);
+  filter: grayscale(100%) brightness(1.2); /* brighter logos on dark bg */
 }
 
 .tech-logos img:hover {
   opacity: 1;
-  filter: grayscale(0%);
+  filter: grayscale(0%) brightness(1.2);
   transform: scale(1.1);
 }
-
     /* WhatsApp button */
     .whatsapp-btn {
       display: inline-flex;
@@ -234,6 +306,26 @@
   </style>
 </head>
 <body>
+<!-- Navigation Bar -->
+<header class="navbar">
+  <div class="nav-container">
+    <!-- Logo -->
+    <a href="#hero" class="logo">
+      <img src="assets/logo.png" alt="AppXvantage Logo">
+    </a>
+
+    <!-- Navigation Links -->
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#clients">Clients</a></li>
+        <li><a href="#technologies">Technologies</a></li>
+        <li><a href="#contact" class="cta-nav">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
   <!-- Hero -->
   <section class="hero">
