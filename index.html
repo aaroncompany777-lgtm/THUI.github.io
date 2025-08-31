@@ -237,6 +237,58 @@
     }
 
     .clients-logos img:hover { opacity: 1; }
+/* OFFICE SECTION */
+.office {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* same premium theme */
+  color: white;
+}
+
+.office-container {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.office-info h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.office-info p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.office-info .address {
+  font-weight: 600;
+  margin: 20px 0;
+}
+
+.map-link {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 18px;
+  border-radius: 50px;
+  background: white;
+  color: #0f2027;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.map-link:hover {
+  background: #00aaff;
+  color: white;
+}
+
+.office-map iframe {
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
 
     /* Contact */
     .contact {
@@ -401,6 +453,28 @@
       <img src="assets/IMG_9138.jpg" alt="Client 6">
     </div>
   </section>
+<!-- Office Address Section -->
+<section class="office" id="office">
+  <div class="office-container">
+    <div class="office-info">
+      <h2>Our Office</h2>
+      <p>Come visit us at our office for a coffee and a chat!</p>
+      <p class="address">
+        📍 123 Innovation Street,<br>
+        Tech Valley, San Francisco, CA
+      </p>
+      <a href="https://www.google.com/maps/place/123+Innovation+Street+San+Francisco" target="_blank" class="map-link">
+        View on Google Maps →
+      </a>
+    </div>
+    <div class="office-map">
+      <!-- Replace the src with your actual office map embed -->
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.01988994809!2d-122.41941548468246!3d37.77492927975909!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809cbae45d!2sSan%20Francisco!5e0!3m2!1sen!2sus!4v1704720000000"
+        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
 
   <!-- Contact -->
 <section class="contact" id="contact">
