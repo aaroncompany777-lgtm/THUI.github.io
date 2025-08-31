@@ -114,9 +114,7 @@
       text-align: center;
       background: 
         linear-gradient(135deg, rgba(15,32,39,0.75), rgba(32,58,67,0.7), rgba(44,83,100,0.7.5)),
-        url("/assets
-/Herobg.jpg
-") center/cover no-repeat;
+        url("assets/Herobg.jpg") center/cover no-repeat;
       background-attachment: fixed;
     }
 
@@ -239,7 +237,6 @@
     }
 
     .clients-logos img:hover { opacity: 1; }
-/* Office Section */
 .office {
   padding: 80px 20px;
   background: linear-gradient(135deg, #0a1f44, #00111a);
@@ -279,12 +276,20 @@
 
 .office-map {
   flex: 1;
+  display: flex;
+  justify-content: center; /* Center map horizontally */
+}
+
+.office-map iframe {
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
+  border: 0;
   border-radius: 15px;
-  overflow: hidden;
   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
-/* Mobile Fix */
+/* 📱 Mobile Fix */
 @media (max-width: 768px) {
   .office-container {
     flex-direction: column;
@@ -295,10 +300,9 @@
     margin-bottom: 20px;
   }
 
-  .office-map iframe {
-    height: 250px; /* shorter map on mobile */
-  }
-}
+  .office-map {
+    justify-content: center; /* Center the iframe */
+    width: 100%;
 
     /* Contact */
     .contact {
