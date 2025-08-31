@@ -1,64 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MySite | Inspired by Apadmi</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="container nav-container">
-      <a href="#" class="logo">MySite</a>
-      <div class="nav-links">
-        <a href="#work">Work</a>
-        <a href="#insights">Insights</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1 class="reveal">We Build Apps <br> That Matter</h1>
-      <p class="reveal delay">
-        Helping brands like Apadmi create digital experiences that scale.
-      </p>
-      <a href="#work" class="btn reveal delay2">See Our Work</a>
-    </div>
-  </section>
-
-  <!-- Work Section -->
-  <section id="work" class="work">
+  <!-- Insights Section -->
+  <section id="insights" class="insights">
     <div class="container">
-      <h2 class="section-title reveal">Our Work</h2>
-      <div class="grid">
-        <div class="card reveal">
-          <img src="project1.jpg" alt="Retail App" />
-          <h3>Retail App</h3>
-          <p>A seamless shopping experience for customers worldwide.</p>
+      <h2 class="section-title reveal">Insights</h2>
+
+      <div class="accordion">
+
+        <div class="accordion-item">
+          <button class="accordion-header">The Future of Mobile Apps</button>
+          <div class="accordion-content">
+            <p>
+              Mobile applications are evolving towards AI-driven personalization,
+              seamless integration with IoT devices, and faster 5G-enabled experiences.
+            </p>
+          </div>
         </div>
-        <div class="card reveal delay">
-          <img src="project2.jpg" alt="Healthcare Platform" />
-          <h3>Healthcare Platform</h3>
-          <p>Connecting doctors and patients with innovative solutions.</p>
+
+        <div class="accordion-item">
+          <button class="accordion-header">Building for Scalability</button>
+          <div class="accordion-content">
+            <p>
+              Scalability ensures that apps perform well under heavy traffic.
+              Cloud-native solutions and microservices architecture are key strategies.
+            </p>
+          </div>
         </div>
-        <div class="card reveal delay2">
-          <img src="project3.jpg" alt="E-commerce Solution" />
-          <h3>E-commerce Solution</h3>
-          <p>Scalable platforms for online retail growth.</p>
+
+        <div class="accordion-item">
+          <button class="accordion-header">Designing User Experiences</button>
+          <div class="accordion-content">
+            <p>
+              Great UX design focuses on accessibility, inclusivity, and reducing friction.
+              Smooth animations create delight and build user trust.
+            </p>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
-
-  <!-- Footer -->
-  <footer>
-    © 2025 MySite. All rights reserved.
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
