@@ -33,10 +33,17 @@ html, body {
     }
 
     section {
-      padding: 6rem 2rem;
-      text-align: center;
-      position: relative;
-    }
+  width: 100%;
+  max-width: 1200px; /* keeps content centered on large screens */
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 
     h2 {
       font-size: 2.5rem;
@@ -54,19 +61,16 @@ html, body {
       margin: 0 auto 2rem;
     }
  /* NAVIGATION BAR */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
+nav {
   width: 100%;
-  padding: 20px 50px;
-  background: rgba(15,32,39, 0.7); /* semi-transparent over gradient */
-  backdrop-filter: blur(12px);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
   display: flex;
-  justify-content: center;
-  z-index: 1000;
-  transition: all 0.3s ease;
+  justify-content: space-between;
+  align-items: center;
 }
+
 
 .nav-container {
   max-width: 1200px;
