@@ -5,22 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AppXvantage</title>
   <style>
-/* Reset & prevent horizontal scrolling */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden; /* prevent sideways scroll */
-  margin: 0 auto;
-  font-family: 'Inter', sans-serif;
-  background: #000; /* fallback */
-}
-
     /* Reset */
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -33,17 +17,10 @@ html, body {
     }
 
     section {
-  width: 100%;
-  max-width: 1200px; /* keeps content centered on large screens */
-  margin: 0 auto;
-  padding: 60px 20px;
-}
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
+      padding: 6rem 2rem;
+      text-align: center;
+      position: relative;
+    }
 
     h2 {
       font-size: 2.5rem;
@@ -61,16 +38,19 @@ img {
       margin: 0 auto 2rem;
     }
  /* NAVIGATION BAR */
-nav {
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  padding: 20px 50px;
+  background: rgba(15,32,39, 0.7); /* semi-transparent over gradient */
+  backdrop-filter: blur(12px);
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: all 0.3s ease;
 }
-
 
 .nav-container {
   max-width: 1200px;
@@ -133,8 +113,8 @@ nav {
       align-items: center;
       text-align: center;
       background: 
-        linear-gradient(135deg, rgba(15,32,39,0.75), rgba(32,58,67,0.7), rgba(44,83,100,0.75)),
-        url("assets/hero-bg.jpg") center/cover no-repeat;
+        linear-gradient(135deg, rgba(15,32,39,0.75), rgba(32,58,67,0.7), rgba(44,83,100,0.7.5)),
+        url("assets/Herobg.jpg") center/cover no-repeat;
       background-attachment: fixed;
     }
 
@@ -215,8 +195,7 @@ nav {
       box-shadow: 0 6px 25px rgba(0,0,0,0.3);
     }
 
-    .whatsapp-btn svg { width: 20px; height: 20px; fill: white;
-    }
+    .whatsapp-btn svg { width: 20px; height: 20px; fill: white; }
 
     /* Portfolio */
     .portfolio-grid {
@@ -293,7 +272,6 @@ nav {
   background: linear-gradient(135deg, #0c4ca3, #1a73e8);
   transform: scale(1.05);
 }
-
 
 
     /* Contact */
@@ -375,24 +353,6 @@ nav {
       opacity: 1;
       transform: translateY(0);
     }
-/* Initial hidden state */
-.reveal {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s ease;
-}
-
-/* Active when in viewport */
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-/* Shared gradient background for all sections */
-.section-bg {
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: #fff;
-}
-
   </style>
 </head>
 <link rel="icon" type="image/png" href="assets/Vmark.png">
@@ -479,9 +439,8 @@ nav {
 <section class="office section-bg" id="office">
   <div class="office-info">
     <h2>Our Office</h2>
-    <p>AppXvantage</p>
-    <p>Software Development Company, Airport House,
-       Purley Way, Croydon CR0 0XZ, United Kingdom</p>
+    <p>123 AppXvantage Street</p>
+    <p> Airport House, Purley Way, Croydon CR0 0XZ, United Kingdom</p>
 
     <!-- Button placed in its own block -->
     <div class="office-btn">
@@ -491,8 +450,6 @@ nav {
     </div>
   </div>
 </section>
-
-
 
   <!-- Contact -->
 <section class="contact" id="contact">
@@ -548,10 +505,3 @@ nav {
   </script>
 </body>
 </html>
-<section class="hero reveal" id="home"> ... </section>
-<section class="about reveal" id="about"> ... </section>
-<section class="portfolio reveal" id="portfolio"> ... </section>
-<section class="clients reveal" id="clients"> ... </section>
-<section class="technologies reveal" id="technologies"> ... </section>
-<section class="office reveal" id="office"> ... </section>
-<section class="contact reveal" id="contact"> ... </section>
