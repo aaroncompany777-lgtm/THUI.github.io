@@ -1,88 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>My Agency – Digital & Mobile Expertise</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MySite | Inspired by Apadmi</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <!-- Navbar -->
-  <header class="header">
-    <div class="container">
-      <h1 class="logo">MyBrand</h1>
-      <nav class="nav">
-        <ul>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#work">Our Work</a></li>
-          <li><a href="#insights">Insights</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a class="cta" href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">MySite</a>
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#insights">Insights</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
-  </header>
+  </nav>
 
   <!-- Hero Section -->
   <section class="hero">
-    <h2>Experts in everything digital</h2>
-    <p>We design, develop, and optimise mobile and web products for leading brands.</p>
-    <div class="logo-showcase">
-      <img src="assets/client1.png" alt="" />
-      <img src="assets/client2.png" alt="" />
-      <img src="assets/client3.png" alt="" />
-      <img src="assets/client4.png" alt="" />
+    <div class="hero-content">
+      <h1 class="reveal">We Build Apps <br> That Matter</h1>
+      <p class="reveal delay">
+        Helping brands like Apadmi create digital experiences that scale.
+      </p>
+      <a href="#work" class="btn reveal delay2">See Our Work</a>
     </div>
   </section>
 
-  <!-- Services -->
-  <section id="services" class="section services">
-    <h2>Our Services</h2>
-    <div class="services-grid">
-      <div class="service-card"><h3>Strategy</h3><p>Technology & product strategy</p></div>
-      <div class="service-card"><h3>Mobile</h3><p>App development (iOS, Android, cross-platform)</p></div>
-      <div class="service-card"><h3>UX/UI</h3><p>User-centered design</p></div>
-      <div class="service-card"><h3>Web Dev</h3><p>Custom websites & PWAs</p></div>
-      <div class="service-card"><h3>Integrations</h3><p>Legacy & third-party systems</p></div>
-      <div class="service-card"><h3>Optimisation</h3><p>Analytics & product growth</p></div>
+  <!-- Work Section -->
+  <section id="work" class="work">
+    <div class="container">
+      <h2 class="section-title reveal">Our Work</h2>
+      <div class="grid">
+        <div class="card reveal">
+          <img src="project1.jpg" alt="Retail App" />
+          <h3>Retail App</h3>
+          <p>A seamless shopping experience for customers worldwide.</p>
+        </div>
+        <div class="card reveal delay">
+          <img src="project2.jpg" alt="Healthcare Platform" />
+          <h3>Healthcare Platform</h3>
+          <p>Connecting doctors and patients with innovative solutions.</p>
+        </div>
+        <div class="card reveal delay2">
+          <img src="project3.jpg" alt="E-commerce Solution" />
+          <h3>E-commerce Solution</h3>
+          <p>Scalable platforms for online retail growth.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Work -->
-  <section id="work" class="section work">
-    <h2>Highlighted Work</h2>
-    <div class="work-grid">
-      <div class="work-item">Project A</div>
-      <div class="work-item">Project B</div>
-      <div class="work-item">Project C</div>
-    </div>
-  </section>
-
-  <!-- Insights -->
-  <section id="insights" class="section insights">
-    <h2>Insights & Resources</h2>
-    <ul>
-      <li><a href="#">App Champions Report 2025</a></li>
-      <li><a href="#">Redesigning your Mobile App – Guide</a></li>
-      <li><a href="#">Optimising Product Performance</a></li>
-    </ul>
-  </section>
-
-  <!-- About -->
-  <section id="about" class="section about">
-    <h2>Our Story</h2>
-    <p>15+ years of building digital excellence, with teams across Manchester & Amsterdam.</p>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="section contact">
-    <h2>Get In Touch</h2>
-    <p>Let’s discuss your next project.</p>
-  </section>
-
-  <footer class="footer">
-    <p>© 2017 MyBrand. All rights reserved.</p>
+  <!-- Footer -->
+  <footer>
+    © 2025 MySite. All rights reserved.
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
