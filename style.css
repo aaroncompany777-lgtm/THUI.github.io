@@ -27,47 +27,25 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: background 0.3s ease;
-}
 
-.accordion-header:hover {
-  background: #f9fafb;
-}
+  border-radius: 12px; /* smooth rounded corners */
+  margin: 0.5rem 0;
 
-.accordion-header::after {
-  content: "+";
-  font-size: 1.5rem;
-  transition: transform 0.4s ease;
-}
-.accordion-header {
-  width: 100%;
-  text-align: left;
-  padding: 1.2rem 1rem;
-  font-size: 1.2rem;
-  font-weight: bold;
-  border: none;
-  outline: none;
-  background: white;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   transition: 
     background 0.3s ease,
-    transform 0.15s ease; /* 👈 press animation */
+    transform 0.15s ease,
+    box-shadow 0.3s ease; /* 👈 smooth shadow */
 }
 
 .accordion-header:hover {
   background: #f9fafb;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08); /* 👈 soft lift */
+  transform: translateY(-2px); /* subtle lift */
 }
 
 .accordion-header:active {
-  transform: scale(0.97); /* 👈 shrink slightly */
-}
-
-.accordion-item.active .accordion-header::after {
-  content: "−";
-  transform: rotate(180deg);
+  transform: scale(0.97); /* press effect */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05); /* slightly reduced shadow */
 }
 
 .accordion-content {
