@@ -1,221 +1,44 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>AppXvantage.com</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>My Agency – Digital & Mobile Expertise</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- ===== NAVBAR ===== -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo" href="#"><img src="assets/Vmark.png" alt="My Logo"></a>
-      <nav class="main-nav">
+  <!-- Navbar -->
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">MyBrand</h1>
+      <nav class="nav">
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li class="has-children">
-            <a href="#services">Services ▾</a>
-            <ul class="dropdown">
-              <li><a href="#uiux">UI/UX Designing</a></li>
-              <li><a href="#mobile">Mobile App Development</a></li>
-              <li><a href="#webdev">Web Development</a></li>
-            </ul>
-          </li>
-          <li><a href="#case-studies">Our work</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#work">Our Work</a></li>
+          <li><a href="#insights">Insights</a></li>
           <li><a href="#about">About Us</a></li>
-          <li><a class="cta" href="#contact">Let's Connect</a></li>
+          <li><a class="cta" href="#contact">Contact</a></li>
         </ul>
       </nav>
-      <button class="mobile-toggle" aria-label="Open menu">☰</button>
     </div>
   </header>
 
-  <!-- ===== HERO ===== -->
-  <section id="home" class="hero">
-    <div class="container hero-grid">
-      <div class="hero-left">
-        <h1>Welcome to AppXvantage</h1>
-        <p>Premium solutions to power your business with elegance.</p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn primary">Talk to Us</a>
-          <a href="#case-studies" class="btn ghost">Our Work</a>
-        </div>
-        <ul class="quick-stats">
-          <li><strong>676</strong><span>Completed Projects</span></li>
-          <li><strong>69</strong><span>Happy Clients</span></li>
-          <li><strong>7</strong><span>Skilled Experts</span></li>
-        </ul>
-      </div>
-      <div class="hero-right">
-        <img src="assets/herobg.jpg" alt="Hero illustration">
-      </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Experts in everything digital</h2>
+    <p>We design, develop, and optimise mobile and web products for leading brands.</p>
+    <div class="logo-showcase">
+      <img src="assets/client1.png" alt="" />
+      <img src="assets/client2.png" alt="" />
+      <img src="assets/client3.png" alt="" />
+      <img src="assets/client4.png" alt="" />
     </div>
   </section>
 
-  <!-- ===== SERVICES ===== -->
+  <!-- Services -->
   <section id="services" class="section services">
-    <div class="container">
-      <h2>Services</h2>
-      <p class="lede">Transform your business with our end-to-end services.</p>
-      <div class="service-grid">
-        <article class="service-card" id="uiux">
-          <img src="assets/icon-uiux.svg" alt="">
-          <h3>UI/UX Designing</h3>
-          <p>User-centered design and prototypes to validate your idea quickly.</p>
-          <a href="#" class="link">Discover More →</a>
-        </article>
-        <article class="service-card" id="mobile">
-          <img src="assets/icon-mobile.svg" alt="">
-          <h3>Mobile App Development</h3>
-          <p>Native & cross-platform apps with clean architecture and great UX.</p>
-          <a href="#" class="link">Discover More →</a>
-        </article>
-        <article class="service-card" id="webdev">
-          <img src="assets/icon-web.svg" alt="">
-          <h3>Web Development</h3>
-          <p>Scalable web apps, e-commerce and SaaS platforms.</p>
-          <a href="#" class="link">Discover More →</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PROCESS ===== -->
-  <section class="section process">
-    <div class="container">
-      <h2>How we work</h2>
-      <div class="process-grid">
-        <div class="process-step">
-          <span class="step-num">01</span>
-          <h4>Research & Planning</h4>
-          <p>Define scope, audience and success metrics.</p>
-        </div>
-        <div class="process-step">
-          <span class="step-num">02</span>
-          <h4>Design & Prototyping</h4>
-          <p>Wireframes and high-fidelity prototypes for validation.</p>
-        </div>
-        <div class="process-step">
-          <span class="step-num">03</span>
-          <h4>Development & QA</h4>
-          <p>Engineering, testing and iterative delivery.</p>
-        </div>
-        <div class="process-step">
-          <span class="step-num">04</span>
-          <h4>Launch & Support</h4>
-          <p>Deploy and maintain with ongoing support.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CASE STUDIES ===== -->
-  <section id="case-studies" class="section case-studies">
-    <div class="container">
-      <h2>Case Studies</h2>
-      <div class="cases-grid">
-        <article class="case">
-          <img src="assets/IMG_9123.jpg" alt="Case 1">
-          <div class="case-info"><h4>Opplev Fredrikstad App</h4><p>Mobile Application</p></div>
-        </article>
-        <article class="case">
-          <img src="assets/IMG_9124.jpg" alt="Case 2">
-          <div class="case-info"><h4>Apopou App</h4><p>Mobile Application</p></div>
-        </article>
-        <article class="case">
-          <img src="assets/iOS_Smart_Home_App___Home_Automation___UI_UX_Design___CIPHERSLAB-removebg-preview.png" alt="Project 3" alt="Case 3">
-          <div class="case-info"><h4>HBK Blanket App</h4><p>Mobile Application</p></div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== TESTIMONIALS ===== -->
-  <section class="section testimonials">
-    <div class="container">
-      <h2>What People Say</h2>
-      <div class="test-grid">
-        <blockquote class="testimonial">
-          <p>"Great team — quick communication and excellent design work."</p>
-          <cite>— Noah, United States</cite>
-        </blockquote>
-        <blockquote class="testimonial">
-          <p>"Professional, delivered the MVP exactly as specified."</p>
-          <cite>— Isaiah, United Kingdom</cite>
-        </blockquote>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== TEAM ===== -->
-  <section id="about" class="section team">
-    <div class="container">
-      <h2>Meet Our Leadership</h2>
-      <div class="team-grid">
-        <div class="person">
-          <img src="assets/team1.jpg" alt="Sporia Deko">
-          <h4>Sporia Deko</h4>
-          <p>Marketing</p>
-        </div>
-        <div class="person">
-          <img src="assets/team2.jpg" alt="Adhom Jonam">
-          <h4>Adhom Jonam</h4>
-          <p>Project Manager</p>
-        </div>
-        <div class="person">
-          <img src="assets/team3.jpg" alt="Turka Pruda">
-          <h4>Turka Pruda</h4>
-          <p>Marketing</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CONTACT ===== -->
-  <section id="contact" class="section contact">
-    <div class="container contact-grid">
-      <div class="contact-form">
-        <h2>Schedule a free consultation</h2>
-        <form action="#" method="post">
-          <input name="name" placeholder="Your Name" required>
-          <input name="email" type="email" placeholder="Your Email" required>
-          <input name="phone" placeholder="Phone">
-          <textarea name="message" placeholder="Tell us about your project" rows="5"></textarea>
-          <button class="btn primary" type="submit">Send Message</button>
-        </form>
-      </div>
-      <aside class="contact-details">
-        <h3>Contact Info</h3>
-        <p><strong>Phone:</strong> +1 267-344-6878</p>
-        <p><strong>Email:</strong> info@itecexperts.com</p>
-        <p><strong>Address:</strong> 8603 Bustleton ave Philadelphia PA 19152</p>
-        <div class="social">
-          <a href="#">Facebook</a> · <a href="#">LinkedIn</a> · <a href="#">GitHub</a>
-        </div>
-      </aside>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>© 2017–2025 AppXvantage™</div>
-      <div class="footer-links">
-        <a href="#about">About</a>
-        <a href="#case-studies">Case Studies</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // Mobile menu toggle
-    const btn = document.querySelector('.mobile-toggle');
-    const nav = document.querySelector('.main-nav');
-    btn && btn.addEventListener('click', () => nav.classList.toggle('open'));
-  </script>
-
-</body>
-</html>
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card"><h3>Strategy</h3><p>Technology & product strategy</p></div>
+      <div class="service-card"><h3>Mobile</h3><p>App development (iOS, Android, cross-platform)</p></div>
+      <div class="service-card"><h3>UX
