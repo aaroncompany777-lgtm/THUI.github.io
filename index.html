@@ -240,7 +240,7 @@
     .clients-logos img:hover { opacity: 1; }
 .office {
   padding: 80px 20px;
-  background: linear-gradient(135deg, #0a1f44, #00111a);
+  background: linear-gradient(135deg, #0d1b3d, #00111a); /* same gradient as rest of site */
   color: #fff;
   text-align: center;
 }
@@ -248,6 +248,7 @@
 .office-info h2 {
   font-size: 2rem;
   margin-bottom: 20px;
+  color: #fff; /* keep bright */
 }
 
 .office-info p {
@@ -260,7 +261,7 @@
   display: inline-block;
   margin-top: 20px;
   padding: 12px 28px;
-  background: linear-gradient(135deg, #1a73e8, #4285f4);
+  background: linear-gradient(135deg, #1a73e8, #4285f4); /* same CTA color */
   color: #fff;
   border-radius: 30px;
   text-decoration: none;
@@ -352,6 +353,19 @@
       opacity: 1;
       transform: translateY(0);
     }
+/* Initial hidden state */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+
+/* Active when in viewport */
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
   </style>
 </head>
 <link rel="icon" type="image/png" href="assets/Vmark.png">
@@ -507,3 +521,10 @@
   </script>
 </body>
 </html>
+<section class="hero reveal" id="home"> ... </section>
+<section class="about reveal" id="about"> ... </section>
+<section class="portfolio reveal" id="portfolio"> ... </section>
+<section class="clients reveal" id="clients"> ... </section>
+<section class="technologies reveal" id="technologies"> ... </section>
+<section class="office reveal" id="office"> ... </section>
+<section class="contact reveal" id="contact"> ... </section>
