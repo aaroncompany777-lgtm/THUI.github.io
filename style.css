@@ -1,12 +1,26 @@
 /* General */
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Base styles */
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
   color: #222;
   background: #fff;
   line-height: 1.6;
 }
-a { text-decoration: none; color: inherit; }
+
+/* Premium futuristic headings */
+h1, h2, h3, h4, h5, h6,
+.logo, 
+.nav-links a,
+button, 
+.cta {
+  font-family: "Michroma", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
 
 /* Container */
 .container {
